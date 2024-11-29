@@ -7,7 +7,7 @@ L'applicazione offre una serie di funzionalità per creare, modificare, eliminar
 
 ---
 ## Componenti :elevator:
-- Di Lieto Gabriele: [g.dilieto5@studenti.unisa.it](mailto:g.dilieto5@studenti.unisa.it)
+- Di Lieto Gabriele
 - Franchetti Carlo
 - De Iuliis Luca 
 
