@@ -9,6 +9,11 @@ L'applicazione offre una serie di funzionalità per creare, modificare, eliminar
 ## Componenti :elevator:
 - Di Lieto Gabriele
 - Franchetti Carlo
-- De Iuliis Luca 
+- De Iuliis Luca
+
+---
+## Requiremnts Engineering 📃
+La **Documentazione** è presente nella directory Documenti, sul file **Rubrica_Gruppo12**
+
 
 
