@@ -13,7 +13,7 @@ L'applicazione offre una serie di funzionalità per creare, modificare, eliminar
 
 ---
 ## Requiremnts Engineering 📃
-La **Documentazione** è presente nella directory Documenti, sul file **Rubrica_Gruppo12**
+La **Documentazione** è presente nella directory Documenti, nel file **Rubrica_Gruppo12**
 
 
 
