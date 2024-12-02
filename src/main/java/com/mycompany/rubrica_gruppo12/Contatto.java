@@ -67,5 +67,12 @@ public class Contatto {
         return numeri;
     }
     
-}
 
+    @Override
+    public int CompareTo(Contatto o){
+    if(!this.cognome.equals(o.cognome)){
+       return this.cognome.compareTo(o.cognome);}
+       else
+       return this.nome.compareTo(o.nome);
+    }
+ }    

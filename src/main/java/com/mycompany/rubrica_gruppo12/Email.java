@@ -27,8 +27,14 @@ public class Email {
     
     }
       
-    /* Inserire "modifica", prende in entrata la posizione da modificare e una stringa. Rende la posizione null e poi fa aggiungi con la stringa*/ 
-     
+     public void modifica(String og,String mod){
+         for (String p : mail){
+             if(p.equals(og)){
+                 p = null;
+              }
+          }
+      aggiungi (mod);     
+     }
         @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
