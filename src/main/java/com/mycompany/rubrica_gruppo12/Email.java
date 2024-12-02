@@ -22,18 +22,22 @@ public class Email {
              p = null;
         }     
         }
-     }
      mail.add(c); 
+     }
     
     }
       
      public void modifica(String og,String mod){
+        if (og != null){ 
          for (String p : mail){
              if(p.equals(og)){
                  mail.remove(p);
               }
           }
+         }
+        if (mod != null){
       aggiungi (mod);     
+      }
      }
         @Override
     public String toString() {

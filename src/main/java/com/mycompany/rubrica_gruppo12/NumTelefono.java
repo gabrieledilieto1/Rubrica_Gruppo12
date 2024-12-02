@@ -22,18 +22,22 @@ public class NumTelefono {
              p = null;
         }     
         }
-     }
      numeri.add(c); 
+     }
     
     }
      
     public void modifica(String og,String mod){
+     if (og != null){  
          for (String p : numeri){
              if(p.equals(og)){
                  numeri.remove(p);
               }
           }
-      aggiungi (mod);     
+        } 
+     if (mod != null){
+     aggiungi (mod);     
+      }     
      } 
     
     @Override
