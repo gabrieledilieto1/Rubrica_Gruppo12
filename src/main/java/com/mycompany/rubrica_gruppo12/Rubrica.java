@@ -16,7 +16,7 @@ import java.util.Set;
  * @author LELE
  */
 public class Rubrica {
-      TreeSet <Contatto> elenco = new TreeSet<>();
+      TreeSet <Contatto> elenco = new TreeSet<>(compareTo);
     
      public void aggiungi(Contatto c) {
      elenco.add(c); 
@@ -32,5 +32,7 @@ public class Rubrica {
         }
             return sb.toString();
     } 
+    
+    
     
 }

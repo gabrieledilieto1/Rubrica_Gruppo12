@@ -19,10 +19,12 @@ public class Email {
      if (c != null){    
      for (String p : mail){    
          if (p.equals(c)){
-             p = null;
+             c = null;
         }     
         }
+     if (c != null){ 
      mail.add(c); 
+     }
      }
     
     }

@@ -19,10 +19,12 @@ public class NumTelefono {
      if (c != null){       
      for (String p : numeri){    
          if (p.equals(c)){
-             p = null;
+             c = null;
         }     
         }
+     if (c != null){ 
      numeri.add(c); 
+     }
      }
     
     }
