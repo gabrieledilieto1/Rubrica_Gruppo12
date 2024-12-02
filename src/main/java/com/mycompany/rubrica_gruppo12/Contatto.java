@@ -10,7 +10,7 @@ package com.mycompany.rubrica_gruppo12;
  *
  * @author LELE
  */
-public class Contatto {
+public class Contatto implements Comparable<Contatto>{
     public String nome;
     public String cognome;
     public String codiceFiscale;
@@ -69,10 +69,11 @@ public class Contatto {
     
 
     @Override
-    public int CompareTo(Contatto o){
+    public int compareTo(Contatto o){
     if(!this.cognome.equals(o.cognome)){
        return this.cognome.compareTo(o.cognome);}
        else
        return this.nome.compareTo(o.nome);
     }
- }    
+
+}    
