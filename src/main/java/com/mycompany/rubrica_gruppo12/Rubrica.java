@@ -33,6 +33,4 @@ public class Rubrica {
             return sb.toString();
     } 
     
-    
-    /* Da inserire il metodo con cui il tree set ordina*/
 }

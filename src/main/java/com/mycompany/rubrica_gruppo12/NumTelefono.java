@@ -30,7 +30,7 @@ public class NumTelefono {
     public void modifica(String og,String mod){
          for (String p : numeri){
              if(p.equals(og)){
-                 p = null;
+                 numeri.remove(p);
               }
           }
       aggiungi (mod);     

@@ -30,7 +30,7 @@ public class Email {
      public void modifica(String og,String mod){
          for (String p : mail){
              if(p.equals(og)){
-                 p = null;
+                 mail.remove(p);
               }
           }
       aggiungi (mod);     
