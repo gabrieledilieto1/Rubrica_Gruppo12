@@ -21,7 +21,7 @@ public class Email {
      }
     
     /*Se non inseriamo null controlla che non ci siano duplicati, se non ne trova aggiunge, altrimenti aggiunge null*/
-     public void aggiungi(String c) {
+     public void aggiungiEmail(String c) {
      if (c != null){    
      for (String p : mail){    
          if (p.equals(c)){
@@ -35,7 +35,7 @@ public class Email {
     
     }
       
-     public void modifica(String og,String mod){
+     public void modificaEmail(String og,String mod){
         if (og != null){ 
          for (String p : mail){
              if(p.equals(og)){
@@ -44,7 +44,7 @@ public class Email {
           }
          }
         if (mod != null){
-      aggiungi (mod);     
+      aggiungiEmail(mod);     
       }
      }
         @Override

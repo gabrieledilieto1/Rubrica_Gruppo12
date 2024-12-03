@@ -12,6 +12,7 @@ import java.util.HashSet;
  * @author LELE
  */
 public class NumTelefono {
+    
       HashSet <String> numeri; 
               
     //COSTRUTTORE
@@ -19,22 +20,24 @@ public class NumTelefono {
           this.numeri = new HashSet<>();
       }
     
-    /*Se non inseriamo null controlla che non ci siano duplicati, se non ne trova aggiunge, altrimenti aggiunge null*/
-     public void aggiungi(String c) {
-     if (c != null){       
-     for (String p : numeri){    
-         if (p.equals(c)){
-             c = null;
-        }     
+      /**
+      * Controlla se l'inserimento è = null, 
+      * controlla che non ci sia un duplicato,
+      * nel caso che l'inserimento è  un duplicato, mantiene l'inserimento originale.
+      */
+      
+     public void aggiungiNumTelefono(String c) {
+        if (c != null){       
+            for (String p : numeri){    
+                if (p.equals(c)){
+                   c = null;
+                } else numeri.add(c);    
+            }
         }
-     if (c != null){ 
-     numeri.add(c); 
      }
-     }
-    
-    }
      
-    public void modifica(String og,String mod){
+     
+    public void modificaNumTelefono(String og,String mod){
      if (og != null){  
          for (String p : numeri){
              if(p.equals(og)){
@@ -43,7 +46,7 @@ public class NumTelefono {
           }
         } 
      if (mod != null){
-     aggiungi (mod);     
+     aggiungiNumTelefono(mod);     
       }     
      } 
     
