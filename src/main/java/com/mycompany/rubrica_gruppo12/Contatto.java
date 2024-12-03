@@ -10,6 +10,7 @@ package com.mycompany.rubrica_gruppo12;
  *
  * @author LELE
  */
+
 public class Contatto implements Comparable<Contatto>{
     public String nome;
     public String cognome;
@@ -29,19 +30,7 @@ public class Contatto implements Comparable<Contatto>{
     }
     }
     
-    public String getNome() {
-
-        return nome;
-
-    }
-    
-    public String getCognome() {
-
-        return cognome;
-
-    }
-    
-    public void setNome(String nome){
+     public void setNome(String nome){
       if (nome == null && this.cognome == null ){ 
         /*Tirare l'eccezione*/  
        }   
@@ -58,6 +47,14 @@ public class Contatto implements Comparable<Contatto>{
       this.cognome = cognome;  
       }
     }   
+     
+    public String getNome() {
+        return nome;
+    }
+    
+    public String getCognome() {
+        return cognome;
+    }
     
     public Email getMail(){
       return mail;  

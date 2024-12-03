@@ -15,8 +15,16 @@ import java.util.Set;
  *
  * @author LELE
  */
+
+//SE VUOI METTERE LA CompareTo devi mettere: Rubrica implements Comparable<>
 public class Rubrica {
-      TreeSet <Contatto> elenco = new TreeSet<>(compareTo);
+    
+     private TreeSet<Contatto> elenco;
+     
+     //COSTRUTTORE
+     public Rubrica(){
+         this.elenco = new TreeSet<>();
+     }
     
      public void aggiungi(Contatto c) {
      elenco.add(c); 

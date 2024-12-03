@@ -11,8 +11,14 @@ import java.util.HashSet;
  *
  * @author LELE
  */
+
 public class Email {
-     HashSet <String> mail = new HashSet<String>();
+     HashSet <String> mail;
+     
+     //COSTRUTTORE
+     public Email(){
+         this.mail = new HashSet<>();
+     }
     
     /*Se non inseriamo null controlla che non ci siano duplicati, se non ne trova aggiunge, altrimenti aggiunge null*/
      public void aggiungi(String c) {

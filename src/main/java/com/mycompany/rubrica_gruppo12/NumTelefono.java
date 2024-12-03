@@ -12,7 +12,12 @@ import java.util.HashSet;
  * @author LELE
  */
 public class NumTelefono {
-      HashSet <String> numeri = new HashSet<String>();
+      HashSet <String> numeri; 
+              
+    //COSTRUTTORE
+      public NumTelefono(){
+          this.numeri = new HashSet<>();
+      }
     
     /*Se non inseriamo null controlla che non ci siano duplicati, se non ne trova aggiunge, altrimenti aggiunge null*/
      public void aggiungi(String c) {

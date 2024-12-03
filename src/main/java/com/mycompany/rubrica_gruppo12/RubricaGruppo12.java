@@ -17,7 +17,14 @@ import javafx.stage.Stage;
  *
  * @author lucad_es3t3f8
  */
-public abstract class RubricaGruppo12 extends Application {
+public class RubricaGruppo12 extends Application {
+
+    
+    //DA ELIMINARE
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  /* quello che esce quando crei un nuovo progetto, mantengo per ora ma da modificare   
     @Override
     public void start(Stage primaryStage) {
