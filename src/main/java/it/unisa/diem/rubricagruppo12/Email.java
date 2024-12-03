@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.rubrica_gruppo12;
+package it.unisa.diem.rubricagruppo12;
 
 import java.util.HashSet;
 
@@ -11,52 +11,50 @@ import java.util.HashSet;
  *
  * @author LELE
  */
-public class NumTelefono {
-      HashSet <String> numeri; 
-              
-    //COSTRUTTORE
-      public NumTelefono(){
-          this.numeri = new HashSet<>();
-      }
+
+public class Email {
+     HashSet <String> mail;
+     
+     //COSTRUTTORE
+     public Email(){
+         this.mail = new HashSet<>();
+     }
     
     /*Se non inseriamo null controlla che non ci siano duplicati, se non ne trova aggiunge, altrimenti aggiunge null*/
      public void aggiungi(String c) {
-     if (c != null){       
-     for (String p : numeri){    
+     if (c != null){    
+     for (String p : mail){    
          if (p.equals(c)){
              c = null;
         }     
         }
      if (c != null){ 
-     numeri.add(c); 
+     mail.add(c); 
      }
      }
     
     }
-     
-    public void modifica(String og,String mod){
-     if (og != null){  
-         for (String p : numeri){
+      
+     public void modifica(String og,String mod){
+        if (og != null){ 
+         for (String p : mail){
              if(p.equals(og)){
-                 numeri.remove(p);
+                 mail.remove(p);
               }
           }
-        } 
-     if (mod != null){
-     aggiungi (mod);     
-      }     
-     } 
-    
-    @Override
+         }
+        if (mod != null){
+      aggiungi (mod);     
+      }
+     }
+        @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("i numeri di telefono sono: \n");
-        for (String p : numeri){
+        System.out.println("le mail sono: \n");
+        for (String p : mail){
             sb.append(p);
             sb.append("\n *** \n");
         }
             return sb.toString();
-    }
-     
-     
+    } 
 }

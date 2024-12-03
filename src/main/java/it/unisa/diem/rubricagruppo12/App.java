@@ -1,4 +1,4 @@
-package com.mycompany.rubrica_gruppo12;
+package it.unisa.diem.rubricagruppo12;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

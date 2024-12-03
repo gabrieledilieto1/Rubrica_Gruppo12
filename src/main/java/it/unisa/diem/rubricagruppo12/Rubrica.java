@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.rubrica_gruppo12;
+package it.unisa.diem.rubricagruppo12;
 
 import java.util.TreeSet;
 import java.time.LocalDate;

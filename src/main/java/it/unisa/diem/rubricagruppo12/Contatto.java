@@ -1,4 +1,4 @@
-package com.mycompany.rubrica_gruppo12;
+package it.unisa.diem.rubricagruppo12;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
