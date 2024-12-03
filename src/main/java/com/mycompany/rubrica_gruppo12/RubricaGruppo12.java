@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.unisa.diem.rubricagruppo12;
+package com.mycompany.rubrica_gruppo12;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;

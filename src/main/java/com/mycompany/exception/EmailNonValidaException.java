@@ -1,4 +1,4 @@
-package it.unisa.diem.exception;
+package com.mycompany.exception;
 /**
  *
  * @author carlo

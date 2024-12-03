@@ -1,6 +1,6 @@
-package it.unisa.diem.rubricagruppo12;
+package com.mycompany.rubrica_gruppo12;
 
-import it.unisa.diem.exception.DuplicatiException;
+import com.mycompany.exception.DuplicatiException;
 import java.util.HashSet;
 
 public class Email {

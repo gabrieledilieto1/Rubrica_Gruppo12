@@ -1,6 +1,6 @@
-package it.unisa.diem.rubricagruppo12;
+package com.mycompany.rubrica_gruppo12;
 
-import it.unisa.diem.exception.NomeECognomeMancanteException;
+import com.mycompany.exception.NomeECognomeMancanteException;
 
 /**
  *
@@ -73,7 +73,7 @@ public class Contatto implements Comparable<Contatto> {
     
       @Override
     public String toString() {
-        return "Contatto: [nome=" + nome + ", cognome=" + cognome + ", mail=" + mail + ", numeri=" + numeri + "]\n";
+        return "Contatto: [nome=" + nome + ", cognome=" + cognome + ", mail=" + mail + ", numeri=" + numeri + "]";
     }
 
 }    

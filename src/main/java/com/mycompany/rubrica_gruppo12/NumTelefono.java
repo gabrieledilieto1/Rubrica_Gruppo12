@@ -1,7 +1,8 @@
 
-package it.unisa.diem.rubricagruppo12;
+package com.mycompany.rubrica_gruppo12;
 
-import it.unisa.diem.exception.NumeroTelefonoNonValidoException;
+import com.mycompany.exception.DuplicatiException;
+import com.mycompany.exception.NumeroTelefonoNonValidoException;
 import java.util.HashSet;
 
 /**
@@ -23,17 +24,18 @@ public class NumTelefono {
       * nel caso che l'inserimento è  un duplicato, mantiene l'inserimento originale.
       */
       
-      public void aggiungiNumTelefono(String c) throws NumeroTelefonoNonValidoException {
+      public void aggiungiNumTelefono(String c) throws NumeroTelefonoNonValidoException, DuplicatiException {
     if (c != null) {
         // Controlla se il numero di telefono è valido
-        if (!c.matches("\\+?\\d{8,15}")) { // Regex: numero di telefono valido (opzionale prefisso internazionale e 8-15 cifre)
+        if (!c.matches("\\+?\\d{8,15}")) { //  numero di telefono valido (opzionale prefisso internazionale e 8-15 cifre)
             // Lancia l'eccezione se il formato del numero non è valido
             throw new NumeroTelefonoNonValidoException();
         }
 
         // Aggiunge il numero solo se non è duplicato
         if (!numeri.add(c)) {
-            System.out.println("Errore: Il numero di telefono \"" + c + "\" è già presente.");
+            throw new DuplicatiException(c);
+            // System.out.println("Errore: Il numero di telefono \"" + c + "\" è già presente.");
         } else {
             System.out.println("Il numero \"" + c + "\" è stato aggiunto correttamente.");
         }
@@ -41,7 +43,7 @@ public class NumTelefono {
 }
 
      
-     public void modificaNumTelefono(String og, String mod) throws NumeroTelefonoNonValidoException {
+     public void modificaNumTelefono(String og, String mod) throws NumeroTelefonoNonValidoException, DuplicatiException {
         // Rimuove il numero originale se esiste
         if (og != null) {
             if (numeri.contains(og)) {
