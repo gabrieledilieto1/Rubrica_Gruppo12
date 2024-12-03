@@ -33,7 +33,7 @@ public class Rubrica {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("l'elenco è formato da: \n");
+        System.out.println("L'elenco è formato da: \n");
             for (Contatto c : elenco){
                 sb.append(c);
                 sb.append("\n *** \n");
