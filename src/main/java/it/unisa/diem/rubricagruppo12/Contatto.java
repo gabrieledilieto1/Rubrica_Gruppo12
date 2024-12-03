@@ -1,5 +1,7 @@
 package it.unisa.diem.rubricagruppo12;
 
+import it.unisa.diem.exception.NomeECognomeMancanteException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,16 +13,17 @@ package it.unisa.diem.rubricagruppo12;
  * @author LELE
  */
 
-public class Contatto implements Comparable<Contatto>{
+public class Contatto implements Comparable<Contatto> {
     public String nome;
     public String cognome;
     public String codiceFiscale;
     public Email mail;
     public NumTelefono numeri;
     
-    public Contatto(String nome, String cognome, Email mail, NumTelefono numeri){ 
+    public Contatto(String nome, String cognome, Email mail, NumTelefono numeri) throws NomeECognomeMancanteException{ 
     if (nome.equals(null) && cognome.equals(null)){
      /* Tirare l'eccezione*/   
+     throw new NomeECognomeMancanteException();
      }   
     else{
     this.nome = nome;
@@ -30,18 +33,20 @@ public class Contatto implements Comparable<Contatto>{
     }
     }
     
-     public void setNome(String nome){
-      if (nome == null && this.cognome == null ){ 
+     public void setNome(String nome) throws NomeECognomeMancanteException{
+      if (nome == null && this.cognome == null ) { 
         /*Tirare l'eccezione*/  
+         throw new NomeECognomeMancanteException();
        }   
       else{
       this.nome = nome;  
       }
     }
     
-     public void setCognome(String cognome){
+     public void setCognome(String cognome) throws NomeECognomeMancanteException{
         if (this.nome == null && cognome == null ){ 
         /*Tirare l'eccezione*/  
+         throw new NomeECognomeMancanteException();
        }   
       else{
       this.cognome = cognome;  
