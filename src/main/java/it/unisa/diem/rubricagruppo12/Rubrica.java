@@ -22,25 +22,22 @@ public class Rubrica {
      private TreeSet<Contatto> elenco;
      
      //COSTRUTTORE
-     public Rubrica(){
-         this.elenco = new TreeSet<>();
-     }
+    public Rubrica(){
+        this.elenco = new TreeSet<>();
+    }
     
-     public void aggiungi(Contatto c) {
-     elenco.add(c); 
+    public void aggiungi(Contatto c) {
+        elenco.add(c); 
     }   
      
-       @Override
+    @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         System.out.println("l'elenco è formato da: \n");
-        for (Contatto c : elenco){
-            sb.append(c);
-            sb.append("\n *** \n");
-        }
-            return sb.toString();
-    } 
-    
-    
-    
+            for (Contatto c : elenco){
+                sb.append(c);
+                sb.append("\n *** \n");
+            }
+        return sb.toString();
+    }        
 }

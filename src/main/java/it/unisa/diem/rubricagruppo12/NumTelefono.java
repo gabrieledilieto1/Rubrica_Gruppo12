@@ -20,7 +20,7 @@ public class NumTelefono {
           this.numeri = new HashSet<>();
       }
     
-      /**
+      /*
       * Controlla se l'inserimento è = null, 
       * controlla che non ci sia un duplicato,
       * nel caso che l'inserimento è  un duplicato, mantiene l'inserimento originale.
