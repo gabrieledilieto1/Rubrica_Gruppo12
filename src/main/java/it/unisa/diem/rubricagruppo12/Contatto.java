@@ -10,12 +10,12 @@ import it.unisa.diem.exception.NomeECognomeMancanteException;
 public class Contatto implements Comparable<Contatto> {
     public String nome;
     public String cognome;
-    public String codiceFiscale;
+    // public String codiceFiscale; è NECESSARIO?
     public Email mail;
     public NumTelefono numeri;
     
     public Contatto(String nome, String cognome, Email mail, NumTelefono numeri) throws NomeECognomeMancanteException{ 
-        if (nome.equals(null) && cognome.equals(null)){
+        if (nome == null && cognome == null){
             /* Tirare l'eccezione*/   
             throw new NomeECognomeMancanteException();
         }else {
@@ -63,9 +63,17 @@ public class Contatto implements Comparable<Contatto> {
 
     @Override
     public int compareTo(Contatto o){
+         if (o == null) {
+            throw new NullPointerException("Il contatto da confrontare è nullo.");
+        }
         if(!this.cognome.equals(o.cognome)){
             return this.cognome.compareTo(o.cognome);
         } else return this.nome.compareTo(o.nome);
+    }
+    
+      @Override
+    public String toString() {
+        return "Contatto: [nome=" + nome + ", cognome=" + cognome + ", mail=" + mail + ", numeri=" + numeri + "]\n";
     }
 
 }    
