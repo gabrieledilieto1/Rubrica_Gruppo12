@@ -1,5 +1,6 @@
 package it.unisa.diem.rubricagruppo12;
 
+import it.unisa.diem.exception.DuplicatiException;
 import java.util.HashSet;
 
 public class Email {
@@ -18,6 +19,7 @@ public class Email {
     public void aggiungiEmail(String c) {
         if (c != null) {
             if (!mail.contains(c)) {
+                //si potrebbe implementare il controllo sul corretto inserimento del formato della mail: nome@dominio.com 
                 mail.add(c);
                 System.out.println("L'e-mail \"" + c + "\" è stata aggiunta.");
             } else {
@@ -27,7 +29,7 @@ public class Email {
     }
 
     // Modifica un'e-mail esistente
-    public void modificaEmail(String og, String mod) {
+    public void modificaEmail(String og, String mod) throws DuplicatiException {
         // Rimuove l'e-mail originale
         if (og != null) {
             if (mail.contains(og)) {
@@ -45,7 +47,8 @@ public class Email {
                 mail.add(mod);
                 System.out.println("L'e-mail \"" + mod + "\" è stata aggiunta con successo.");
             } else {
-                System.out.println("Errore: L'e-mail \"" + mod + "\" è già presente nella lista.");
+                throw new DuplicatiException(mod);
+               // System.out.println("Errore: L'e-mail \"" + mod + "\" è già presente nella lista.");
             }
         }
     }
