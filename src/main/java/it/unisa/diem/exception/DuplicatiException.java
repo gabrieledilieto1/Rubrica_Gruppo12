@@ -7,7 +7,8 @@ package it.unisa.diem.exception;
 
 /**
  *
- * @author LELE
+ * @author LELE 
+ * ciao
  */
 public class DuplicatiException extends Exception{
 
