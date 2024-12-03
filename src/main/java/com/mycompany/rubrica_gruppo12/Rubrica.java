@@ -44,7 +44,7 @@ public class Rubrica {
         System.out.println("L'elenco è formato da: \n");
             for (Contatto c : elenco){
                 sb.append(c);
-                sb.append("\n *** \n");
+                sb.append(" ");
             }
         return sb.toString();
     }        
@@ -53,14 +53,14 @@ public class Rubrica {
    public void esporta(String filePath) throws IOException {
     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
         // Aggiungere l'intestazione
-        writer.write("Nome,Cognome,Email,Numeri");
+        writer.write("Nome, Cognome, Email, Numeri");
         writer.newLine(); // Nuova riga dopo l'intestazione
 
         for (Contatto c : elenco) {
             // Scrivi i dettagli del contatto
-            writer.write(c.getNome() + "," +
-                         c.getCognome() + "," +
-                         c.getMail() + "," +
+            writer.write(c.getNome() + ", " +
+                         c.getCognome() + ", " +
+                         c.getMail() + ", " +
                          c.getNumeri());
             writer.newLine();
         }

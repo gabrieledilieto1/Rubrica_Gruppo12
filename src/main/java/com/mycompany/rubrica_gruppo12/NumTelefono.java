@@ -81,7 +81,7 @@ public class NumTelefono {
         System.out.println("I numeri di telefono sono: \n");
         for (String p : numeri){
             sb.append(p);
-            sb.append("\n *** \n");
+            sb.append(" ");
         }
             return sb.toString();
     }

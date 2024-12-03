@@ -1,7 +1,7 @@
-Nome,Cognome,Email,Numeri
-Luigi,Bianchi,luigi.bianchi@example.com
+Nome, Cognome, Email, Numeri
+Luigi, Bianchi, luigi.bianchi@example.com
  *** 
-,+390987654321
-Mario,Rossi,mario.rossi@example.com
+, +390987654321 
+Mario, Rossi, mario.rossi@example.com
  *** 
-,+390123456789
+, +390123456789 
