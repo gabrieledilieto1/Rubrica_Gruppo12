@@ -82,7 +82,9 @@ public class Rubrica{
                     System.err.println("Riga ignorata, formato non valido: " + line);
                     continue;
                 }
-
+                if (dati[3].trim().equals("Numeri")){
+                    continue;
+                    }
                 // Estrae i dati e crea un nuovo Contatto
                 String nome = dati[0].trim();
                 String cognome = dati[1].trim();

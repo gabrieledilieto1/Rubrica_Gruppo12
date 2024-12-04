@@ -29,6 +29,7 @@ public class NumTelefono {
         // Controlla se il numero di telefono è valido
         if (!c.matches("\\+?\\d{8,15}")) { //  numero di telefono valido (opzionale prefisso internazionale e 8-15 cifre)
             // Lancia l'eccezione se il formato del numero non è valido
+            System.out.println(c);
             throw new NumeroTelefonoNonValidoException();
         }
 

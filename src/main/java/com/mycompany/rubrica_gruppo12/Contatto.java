@@ -8,11 +8,11 @@ import com.mycompany.exception.NomeECognomeMancanteException;
  */
 
 public class Contatto implements Comparable<Contatto> {
-    public String nome;
-    public String cognome;
+    private String nome;
+    private String cognome;
     // public String codiceFiscale; è NECESSARIO?
-    public Email mail;
-    public NumTelefono numeri;
+    private Email mail;
+    private NumTelefono numeri;
     
     public Contatto(String nome, String cognome, Email mail, NumTelefono numeri) throws NomeECognomeMancanteException{ 
         if (nome == null && cognome == null){
