@@ -42,7 +42,7 @@ public class App extends Application {
             NumTelefono num1 = new NumTelefono();
             num1.aggiungiNumTelefono("+390123456789");
             Contatto c1 = new Contatto("Mario", "Rossi", mail1, num1);
-            rubrica.aggiungi(c1);
+            rubrica.aggiungiContatto(c1);
 
             // Creazione del secondo contatto
             Email mail2 = new Email();
@@ -50,7 +50,7 @@ public class App extends Application {
             NumTelefono num2 = new NumTelefono();
             num2.aggiungiNumTelefono("+390987654321");
             Contatto c2 = new Contatto("Luigi", "Bianchi", mail2, num2);
-            rubrica.aggiungi(c2);
+            rubrica.aggiungiContatto(c2);
 
             // Stampa della rubrica dopo l'aggiunta dei contatti
             System.out.println("Rubrica dopo l'aggiunta di contatti:");

@@ -34,7 +34,7 @@ public class Rubrica{
         this.elenco = new TreeSet<>();
     }
     
-    public void aggiungi(Contatto c) {
+    public void aggiungiContatto(Contatto c) {
         elenco.add(c); 
     }   
      
