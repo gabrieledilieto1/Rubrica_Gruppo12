@@ -59,7 +59,7 @@ public class Email {
         System.out.println("Le mail sono: \n");
         for (String p : mail) {
             sb.append(p);
-            sb.append("\n *** \n");
+            sb.append(" ");
         }
         return sb.toString();
     }
