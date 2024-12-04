@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.rubrica_gruppo12;
 
 import com.mycompany.exception.DuplicatiException;
@@ -14,15 +9,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.TreeSet;
-import java.time.LocalDate;
-import java.util.Objects;
-import java.util.Set;
-
-
-/**
- *
- * @author LELE
- */
 
 //SE VUOI METTERE LA CompareTo devi mettere: Rubrica implements Comparable<>
 public class Rubrica{
@@ -50,23 +36,23 @@ public class Rubrica{
     }        
     
     //IMPLEMENTO ESPORTA E IMPORTA
-   public void esporta(String filePath) throws IOException {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-        // Aggiungere l'intestazione
-        writer.write("Nome, Cognome, Email, Numeri");
-        writer.newLine(); // Nuova riga dopo l'intestazione
+    public void esporta(String filePath) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+             // Aggiungere l'intestazione
+            writer.write("Nome, Cognome, Email, Numeri");
+            writer.newLine(); // Nuova riga dopo l'intestazione
 
-        for (Contatto c : elenco) {
-            // Scrivi i dettagli del contatto
-            writer.write(c.getNome() + ", " +
+            for (Contatto c : elenco) {
+                 // Scrivi i dettagli del contatto
+                    writer.write(c.getNome() + ", " +
                          c.getCognome() + ", " +
                          c.getMail() + ", " +
                          c.getNumeri());
-            writer.newLine();
-        }
+                    writer.newLine();
+            }
         System.out.println("Rubrica esportata correttamente in: " + filePath);
+        }
     }
-}
 
     
     //da rivedere

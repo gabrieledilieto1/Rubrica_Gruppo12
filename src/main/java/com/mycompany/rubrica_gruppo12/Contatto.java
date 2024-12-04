@@ -2,11 +2,6 @@ package com.mycompany.rubrica_gruppo12;
 
 import com.mycompany.exception.NomeECognomeMancanteException;
 
-/**
- *
- * @author LELE
- */
-
 public class Contatto implements Comparable<Contatto> {
     private String nome;
     private String cognome;
