@@ -79,7 +79,6 @@ public class NumTelefono {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("I numeri di telefono sono: \n");
         for (String p : numeri){
             sb.append(p);
             sb.append(" ");

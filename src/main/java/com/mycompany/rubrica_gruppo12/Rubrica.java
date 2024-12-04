@@ -41,10 +41,10 @@ public class Rubrica{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("L'elenco è formato da: \n");
+        System.out.println("L'elenco è formato da:");
             for (Contatto c : elenco){
                 sb.append(c);
-                sb.append(" ");
+                sb.append("\n");
             }
         return sb.toString();
     }        
@@ -86,6 +86,7 @@ public class Rubrica{
                     continue;
                     }
                 // Estrae i dati e crea un nuovo Contatto
+                System.out.println("\n");
                 String nome = dati[0].trim();
                 String cognome = dati[1].trim();
                 Email mail = new Email();

@@ -56,7 +56,6 @@ public class Email {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("Le mail sono: \n");
         for (String p : mail) {
             sb.append(p);
             sb.append(" ");
