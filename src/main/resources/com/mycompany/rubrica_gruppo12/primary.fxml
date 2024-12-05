@@ -6,57 +6,65 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="400.0" prefWidth="178.0">
-         <children>
-            <Label alignment="CENTER" prefHeight="18.0" prefWidth="191.0" text="AGGIUNGI CONTATTO" textAlignment="CENTER">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets top="1.0" />
-               </padding>
-            </Label>
-            <Pane prefHeight="384.0" prefWidth="178.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <Label layoutX="12.0" layoutY="57.0" text="NOME">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="9.0" layoutY="87.0" />
-                  <Label layoutX="13.0" layoutY="158.0" text="NUMERO TELEFONO" />
-                  <TextField layoutX="9.0" layoutY="131.0" />
-                  <Label graphicTextGap="10.0" layoutX="14.0" layoutY="114.0" text="COGNOME" />
-                  <TextField layoutX="9.0" layoutY="178.0" />
-                  <Label layoutX="14.0" layoutY="214.0" text="EMAIL" />
-                  <TextField layoutX="9.0" layoutY="238.0" />
-                  <Button layoutX="13.0" layoutY="301.0" mnemonicParsing="false" text="Aggiungi" />
-               </children>
-            </Pane>
-         </children>
-      </VBox>
-      <SplitPane dividerPositions="0.1" layoutX="162.0" layoutY="93.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
         <items>
-          <AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button layoutX="321.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
-                  <TextField layoutX="78.0" layoutY="5.0" />
+                  <VBox prefHeight="400.0" prefWidth="178.0">
+                     <children>
+                        <Pane prefHeight="384.0" prefWidth="178.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <Label layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="9.0" layoutY="62.0" promptText="es. Giulio" />
+                              <Label layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
+                              <TextField layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
+                              <Label graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
+                              <TextField layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
+                              <Label layoutX="9.0" layoutY="247.0" text="EMAIL" />
+                              <TextField layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
+                              <Button layoutX="13.0" layoutY="326.0" mnemonicParsing="false" text="Aggiungi" />
+                              <Label layoutX="30.0" layoutY="14.0" text="CREA CONTATTO">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="112.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn prefWidth="207.0" text="Nome" />
-                      <TableColumn prefWidth="215.0" text="Cognome" />
-                    </columns>
-                  </TableView>
+                  <SplitPane dividerPositions="0.1" orientation="VERTICAL" prefHeight="400.0" prefWidth="416.0">
+                    <items>
+                      <AnchorPane>
+                           <children>
+                              <TextField layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
+                              <Button layoutX="249.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">
+                           <children>
+                              <TableView layoutX="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="206.0" text="Nome" />
+                                  <TableColumn prefWidth="207.0" text="Cognome" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </children>
             </AnchorPane>
         </items>
