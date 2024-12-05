@@ -20,6 +20,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 /**
@@ -53,6 +55,12 @@ public class PrimaryController implements Initializable {
     private Label fldEmail;
     
     private ObservableList<Contatto> contacts; 
+    @FXML
+    private TableView<?> tblContatti;
+    @FXML
+    private TableColumn<?, ?> tblCognome;
+    @FXML
+    private TableColumn<?, ?> tblNome;
 
     /**
      * Initializes the controller class.
@@ -63,7 +71,6 @@ public class PrimaryController implements Initializable {
         contacts = FXCollections.observableArrayList(); 
     }    
     
-    @FXML
     private void aggiungiContatto() throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
         // Creazione di un oggetto Email
         Email email = new Email();
