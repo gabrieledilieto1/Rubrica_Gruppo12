@@ -1,16 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.SecondaryController">
-    <children>
-        <Label text="Secondary View" />
-        <Button fx:id="secondaryButton" text="Switch to Primary View" onAction="#switchToPrimary" />
-    </children>
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <VBox prefHeight="400.0" prefWidth="178.0">
+                     <children>
+                        <Pane prefHeight="384.0" prefWidth="178.0">
+                           <children>
+                              <Label layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="9.0" layoutY="62.0" promptText="es. Giulio" />
+                              <Label layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
+                              <TextField layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
+                              <Label graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
+                              <TextField layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
+                              <Label layoutX="9.0" layoutY="247.0" text="EMAIL" />
+                              <TextField layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
+                              <Button layoutX="13.0" layoutY="326.0" mnemonicParsing="false" text="Aggiungi" />
+                              <Label layoutX="30.0" layoutY="14.0" text="CREA CONTATTO">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.1" orientation="VERTICAL" prefHeight="400.0" prefWidth="416.0">
+                     <items>
+                        <AnchorPane>
+                           <children>
+                              <TextField layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
+                              <Button layoutX="249.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">
+                           <children>
+                              <Label layoutX="43.0" layoutY="14.0" text="Torna indietro">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="11.0" layoutY="10.0" mnemonicParsing="false" text="←" />
+                              <Label layoutX="41.0" layoutY="62.0" text="NOME" />
+                              <Label layoutX="100.0" layoutY="62.0" text="COGNOME" />
+                              <Label layoutX="40.0" layoutY="110.0" text="NUMERO TELEFONO" />
+                              <Label layoutX="40.0" layoutY="169.0" text="NUMERO TELEFONO" />
+                              <Label layoutX="40.0" layoutY="231.0" text="NUMERO TELEFONO" />
+                              <Label layoutX="292.0" layoutY="110.0" text="EMAIL" />
+                              <Label layoutX="292.0" layoutY="169.0" text="EMAIL" />
+                              <Label layoutX="292.0" layoutY="231.0" text="EMAIL" />
+                              <Button layoutX="180.0" layoutY="291.0" mnemonicParsing="false" text="Modifica" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
