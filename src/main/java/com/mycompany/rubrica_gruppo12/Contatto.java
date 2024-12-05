@@ -5,7 +5,6 @@ import com.mycompany.exception.NomeECognomeMancanteException;
 public class Contatto implements Comparable<Contatto> {
     private String nome;
     private String cognome;
-    // public String codiceFiscale; è NECESSARIO?
     private Email mail;
     private NumTelefono numeri;
     

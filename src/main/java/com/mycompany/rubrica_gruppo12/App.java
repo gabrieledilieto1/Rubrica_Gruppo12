@@ -32,7 +32,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        try {
+        /*try {
           // Creazione della rubrica
             Rubrica rubrica = new Rubrica();
 
@@ -75,6 +75,8 @@ public class App extends Application {
         } catch (Exception e) {
             System.err.println("Errore generico: " + e.getMessage());
         }
+*/
+        launch();
     }
     
 
