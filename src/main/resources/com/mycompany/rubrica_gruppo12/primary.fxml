@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
         <items>
@@ -19,19 +19,19 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Label layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
+                              <Label fx:id="fldNome" layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="9.0" layoutY="62.0" promptText="es. Giulio" />
-                              <Label layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
-                              <TextField layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
-                              <Label graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
-                              <TextField layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
-                              <Label layoutX="9.0" layoutY="247.0" text="EMAIL" />
-                              <TextField layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
-                              <Button layoutX="45.0" layoutY="335.0" mnemonicParsing="false" text="Aggiungi" />
+                              <TextField fx:id="txtNome" layoutX="9.0" layoutY="62.0" promptText="es. Giulio" />
+                              <Label fx:id="fldNumTelefono" layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
+                              <TextField fx:id="txtCognome" layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
+                              <Label fx:id="fldCognome" graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
+                              <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
+                              <Label fx:id="fldEmail" layoutX="9.0" layoutY="247.0" text="EMAIL" />
+                              <TextField fx:id="txtEmail" layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
+                              <Button fx:id="btnAggiungi" layoutX="45.0" layoutY="326.0" mnemonicParsing="false" text="Aggiungi" />
                               <Label layoutX="30.0" layoutY="14.0" text="CREA CONTATTO">
                                  <font>
                                     <Font size="15.0" />
@@ -49,8 +49,8 @@
                     <items>
                       <AnchorPane>
                            <children>
-                              <TextField layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
-                              <Button layoutX="249.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
+                              <TextField fx:id="txtCercaContatto" layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
+                              <Button fx:id="btnCerca" layoutX="249.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">

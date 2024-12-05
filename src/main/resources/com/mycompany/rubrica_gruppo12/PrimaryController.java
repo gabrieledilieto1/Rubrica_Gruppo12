@@ -7,7 +7,11 @@ package com.mycompany.rubrica_gruppo12;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -15,6 +19,29 @@ import javafx.fxml.Initializable;
  * @author LELE
  */
 public class PrimaryController implements Initializable {
+
+    @FXML
+    private TextField txtNome;
+    @FXML
+    private TextField txtCognome;
+    @FXML
+    private TextField txtNumTelefono;
+    @FXML
+    private TextField txtEmail;
+    @FXML
+    private Button btnAggiungi;
+    @FXML
+    private TextField txtCercaContatto;
+    @FXML
+    private Button btnCerca;
+    @FXML
+    private Label fldNome;
+    @FXML
+    private Label fldNumTelefono;
+    @FXML
+    private Label fldCognome;
+    @FXML
+    private Label fldEmail;
 
     /**
      * Initializes the controller class.
