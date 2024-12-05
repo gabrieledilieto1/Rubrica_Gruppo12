@@ -16,6 +16,10 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
+ * Label = lbl
+ * Text = txt
+ * Button = btn
+ * 
  * @author LELE
  */
 public class SecondaryController implements Initializable {
