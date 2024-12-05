@@ -9,7 +9,7 @@ package com.mycompany.exception;
  *
  * @author LELE
  */
-public class NomeECognomeMancanteException extends Exception {
+public class NomeECognomeMancanteException extends RubricaException {
     public NomeECognomeMancanteException() {
         super("Errore: È necessario inserire almeno il nome o il cognome.");
     }

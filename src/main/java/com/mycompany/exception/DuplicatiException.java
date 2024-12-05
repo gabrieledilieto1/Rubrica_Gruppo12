@@ -10,7 +10,7 @@ package com.mycompany.exception;
  * @author LELE 
  * ciao
  */
-public class DuplicatiException extends Exception{
+public class DuplicatiException extends RubricaException{
 
     
     public DuplicatiException() {

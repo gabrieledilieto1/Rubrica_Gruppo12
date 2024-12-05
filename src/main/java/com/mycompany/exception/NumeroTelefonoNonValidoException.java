@@ -9,7 +9,7 @@ package com.mycompany.exception;
  *
  * @author LELE
  */
-public class NumeroTelefonoNonValidoException extends Exception {
+public class NumeroTelefonoNonValidoException extends RubricaException {
     public NumeroTelefonoNonValidoException() {
         super("Errore: Numero di telefono non valido. Assicurarsi che contenga solo cifre e sia compreso tra 8 e 15 caratteri.");
     }
