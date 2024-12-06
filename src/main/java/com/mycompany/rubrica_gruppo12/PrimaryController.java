@@ -14,6 +14,7 @@ import com.mycompany.rubrica_gruppo12.NumTelefono;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -56,11 +58,11 @@ public class PrimaryController implements Initializable {
     
     private ObservableList<Contatto> contacts; 
     @FXML
-    private TableView<?> tblContatti;
+    private TableView<Contatto> tblContatti;
     @FXML
     private TableColumn<?, ?> clmCognome;
     @FXML
-    private TableColumn<?, ?> clmNome;
+    private TableColumn<Contatto, String> clmNome;
 
     /**
      * Initializes the controller class.
@@ -68,7 +70,11 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        contacts = FXCollections.observableArrayList(); 
+        contacts = FXCollections.observableArrayList();
+        
+        tblContatti.setItems(contacts); //Collegamento alla tabella
+        clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
+        //clmNome.setCellValueFactory(new PropertyValueFactory("Nome"));
     }    
     
     private void aggiungiContatto() throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
