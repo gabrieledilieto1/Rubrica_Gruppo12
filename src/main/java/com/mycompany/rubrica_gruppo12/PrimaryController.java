@@ -11,9 +11,11 @@ import com.mycompany.exception.NumeroTelefonoNonValidoException;
 import com.mycompany.rubrica_gruppo12.Contatto;
 import com.mycompany.rubrica_gruppo12.Email;
 import com.mycompany.rubrica_gruppo12.NumTelefono;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,15 +57,15 @@ public class PrimaryController implements Initializable {
     private Label fldCognome;
     @FXML
     private Label fldEmail;
-    
-    private ObservableList<Contatto> contacts; 
     @FXML
     private TableView<Contatto> tblContatti;
     @FXML
-    private TableColumn<?, ?> clmCognome;
+    private TableColumn<Contatto, String > clmCognome;
     @FXML
     private TableColumn<Contatto, String> clmNome;
-
+    
+    private ObservableList<Contatto> contacts; 
+    private Rubrica rubrica; 
     /**
      * Initializes the controller class.
      */
@@ -71,13 +73,18 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         contacts = FXCollections.observableArrayList();
+        //Collegamento alla tabella
+        tblContatti.setItems(contacts); 
         
-        tblContatti.setItems(contacts); //Collegamento alla tabella
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
-        //clmNome.setCellValueFactory(new PropertyValueFactory("Nome"));
+        clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
+        
+        //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
+        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> fldNome.getText().isEmpty() || fldCognome.getText().isEmpty(), fldNome.textProperty(), fldCognome.textProperty() ));
+       
     }    
     
-    private void aggiungiContatto() throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
+    private void aggiungiContatto(ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
         // Creazione di un oggetto Email
         Email email = new Email();
         if (!fldEmail.getText().isEmpty()) {
@@ -88,8 +95,15 @@ public class PrimaryController implements Initializable {
         if (!fldNumTelefono.getText().isEmpty()) {
             numTelefono.aggiungiNumTelefono(fldNumTelefono.getText());
         }
+        String nome = txtNome.getText();
+        String cognome = txtCognome.getText();
+        //Crea il contatto
+        Contatto contatto= new Contatto(nome, cognome, email, numTelefono);
         //Aggiungo il contatto alla rubrica
-        contacts.add(new Contatto(fldNome.getText(), fldCognome.getText(), email, numTelefono));
+        //contacts.add(new Contatto(fldNome.getText(), fldCognome.getText(), email, numTelefono ));
+        rubrica.aggiungiContatto(contatto);
+        tblContatti.setItems(FXCollections.observableArrayList(rubrica.get));
+        
 }
     
     

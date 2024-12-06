@@ -20,6 +20,8 @@ public class Contatto implements Comparable<Contatto> {
             this.numeri = numeri;
         }
     }
+
+    
     
      public void setNome(String nome) throws NomeECognomeMancanteException{
         if (nome == null && this.cognome == null ) { 
