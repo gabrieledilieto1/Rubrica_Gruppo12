@@ -8,6 +8,7 @@ public class Contatto implements Comparable<Contatto> {
     private Email mail;
     private NumTelefono numeri;
     
+    //Costruttore
     public Contatto(String nome, String cognome, Email mail, NumTelefono numeri) throws NomeECognomeMancanteException{ 
         if (nome == null && cognome == null){
             /* Tirare l'eccezione*/   

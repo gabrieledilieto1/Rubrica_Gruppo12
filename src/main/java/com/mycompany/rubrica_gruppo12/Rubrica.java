@@ -19,7 +19,7 @@ public class Rubrica{
     public Rubrica(){
         this.elenco = new TreeSet<>();
     }
-    
+    //AGGIUNTA DEL CONTATTO ALLA RUBRICA
     public void aggiungiContatto(Contatto c) {
         elenco.add(c); 
     }   
@@ -35,7 +35,7 @@ public class Rubrica{
         return sb.toString();
     }        
     
-    //IMPLEMENTO ESPORTA E IMPORTA
+    //ESPORTA UNA RUBRICA SU UN FILE 
     public void esporta(String filePath) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
              // Aggiungere l'intestazione
@@ -55,7 +55,7 @@ public class Rubrica{
     }
 
     
-    //da rivedere
+    //IMPORTA UNA RUBRICA DA UN FILE 
     public void importa(String filePath) throws IOException, NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
