@@ -3,8 +3,8 @@ package com.mycompany.rubrica_gruppo12;
 import com.mycompany.exception.NomeECognomeMancanteException;
 
 public class Contatto implements Comparable<Contatto> {
-    private String nome;
-    private String cognome;
+    public String nome;
+    public String cognome;
     private Email mail;
     private NumTelefono numeri;
     
@@ -55,7 +55,7 @@ public class Contatto implements Comparable<Contatto> {
         return numeri;
     }
     
-
+    
     @Override
     public int compareTo(Contatto o){
          if (o == null) {
