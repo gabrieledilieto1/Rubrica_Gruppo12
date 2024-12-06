@@ -76,7 +76,7 @@ public class App extends Application {
             System.err.println("Errore generico: " + e.getMessage());
         }
 */
-        launch();
+         launch(args);
     }
     
 

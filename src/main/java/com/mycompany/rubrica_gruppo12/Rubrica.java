@@ -25,7 +25,12 @@ public class Rubrica{
     public void aggiungiContatto(Contatto c) {
         elenco.add(c); 
     }   
+
+    public TreeSet<Contatto> getElenco() {
+        return this.elenco;
+    }
      
+    
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();

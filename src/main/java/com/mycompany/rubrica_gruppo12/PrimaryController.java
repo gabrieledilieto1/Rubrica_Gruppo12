@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -63,9 +64,14 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String > clmCognome;
     @FXML
     private TableColumn<Contatto, String> clmNome;
+    @FXML
+    private Button btnImporta;
+    @FXML
+    private Button btnEsporta;
     
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
+    
     /**
      * Initializes the controller class.
      */
@@ -73,8 +79,12 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         contacts = FXCollections.observableArrayList();
-        //Collegamento alla tabella
-        tblContatti.setItems(contacts); 
+        tblContatti.setItems(contacts);
+        
+        /*
+        rubrica = new Rubrica();
+        tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
+        */
         
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
@@ -84,7 +94,8 @@ public class PrimaryController implements Initializable {
        
     }    
     
-    private void aggiungiContatto(ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
+    @FXML
+    private void aggiungiContatto(ActionEvent event)  throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
         // Creazione di un oggetto Email
         Email email = new Email();
         if (!fldEmail.getText().isEmpty()) {
@@ -102,9 +113,20 @@ public class PrimaryController implements Initializable {
         //Aggiungo il contatto alla rubrica
         //contacts.add(new Contatto(fldNome.getText(), fldCognome.getText(), email, numTelefono ));
         rubrica.aggiungiContatto(contatto);
-        tblContatti.setItems(FXCollections.observableArrayList(rubrica.get));
+        tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
 }
-    
-    
+
+    @FXML
+    private void cercaContatto(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void importaContatto(javafx.event.ActionEvent event) {
+    }
+
+    @FXML
+    private void esportaContatto(javafx.event.ActionEvent event) {
+    }
+     
 }

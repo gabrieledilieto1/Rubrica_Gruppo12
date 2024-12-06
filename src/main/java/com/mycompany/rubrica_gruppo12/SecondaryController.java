@@ -7,6 +7,7 @@ package com.mycompany.rubrica_gruppo12;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -60,6 +61,10 @@ public class SecondaryController implements Initializable {
     private Button btnModifica;
     @FXML
     private Button btnElimina;
+    @FXML
+    private Button btnImporta;
+    @FXML
+    private Button btnEsporta;
 
     /**
      * Initializes the controller class.
@@ -68,5 +73,13 @@ public class SecondaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void importaContatto(ActionEvent event) {
+    }
+
+    @FXML
+    private void esportaContatto(ActionEvent event) {
+    }
     
 }
