@@ -33,13 +33,17 @@
                               <Label layoutX="9.0" layoutY="247.0" text="EMAIL" />
                               <TextField fx:id="txtEmail" layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
                               <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" text="Aggiungi" />
-                              <Label layoutX="30.0" layoutY="14.0" text="CREA CONTATTO">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
                               <Button fx:id="btnImporta" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#importaContatto" text="Importa" />
                               <Button fx:id="btnEsporta" layoutX="102.0" layoutY="343.0" mnemonicParsing="false" onAction="#esportaContatto" text="Esporta" />
+                              <MenuBar layoutX="17.0" layoutY="8.0">
+                                <menus>
+                                  <Menu mnemonicParsing="false" text="File">
+                                    <items>
+                                      <MenuItem mnemonicParsing="false" text="Apri" />
+                                    </items>
+                                  </Menu>
+                                </menus>
+                              </MenuBar>
                            </children>
                            <VBox.margin>
                               <Insets />
