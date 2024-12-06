@@ -73,7 +73,8 @@
                               <Label fx:id="lblEmail1" layoutX="292.0" layoutY="110.0" text="EMAIL" />
                               <Label fx:id="lblEmail2" layoutX="292.0" layoutY="169.0" text="EMAIL" />
                               <Label fx:id="lblEmail3" layoutX="292.0" layoutY="231.0" text="EMAIL" />
-                              <Button fx:id="btnModifica" layoutX="180.0" layoutY="291.0" mnemonicParsing="false" text="Modifica" />
+                              <Button fx:id="btnModifica" layoutX="78.0" layoutY="278.0" mnemonicParsing="false" text="Modifica" />
+                              <Button fx:id="btnElimina" layoutX="252.0" layoutY="278.0" mnemonicParsing="false" text="Elimina" />
                            </children>
                         </AnchorPane>
                      </items>

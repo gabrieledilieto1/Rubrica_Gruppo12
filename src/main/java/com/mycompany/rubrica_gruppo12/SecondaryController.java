@@ -58,6 +58,8 @@ public class SecondaryController implements Initializable {
     private Label lblEmail3;
     @FXML
     private Button btnModifica;
+    @FXML
+    private Button btnElimina;
 
     /**
      * Initializes the controller class.
