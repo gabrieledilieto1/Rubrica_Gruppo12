@@ -58,9 +58,9 @@ public class PrimaryController implements Initializable {
     @FXML
     private TableView<?> tblContatti;
     @FXML
-    private TableColumn<?, ?> tblCognome;
+    private TableColumn<?, ?> clmCognome;
     @FXML
-    private TableColumn<?, ?> tblNome;
+    private TableColumn<?, ?> clmNome;
 
     /**
      * Initializes the controller class.

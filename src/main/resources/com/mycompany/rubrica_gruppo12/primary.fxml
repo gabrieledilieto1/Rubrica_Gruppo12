@@ -57,8 +57,8 @@
                            <children>
                               <TableView fx:id="tblContatti" layoutX="7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn fx:id="tblCognome" prefWidth="206.0" text="Cognome" />
-                                  <TableColumn fx:id="tblNome" prefWidth="207.0" text="Nome" />
+                                  <TableColumn fx:id="clmCognome" prefWidth="206.0" text="Cognome" />
+                                  <TableColumn fx:id="clmNome" prefWidth="207.0" text="Nome" />
                                 </columns>
                               </TableView>
                            </children>
