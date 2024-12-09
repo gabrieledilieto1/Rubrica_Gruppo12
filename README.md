@@ -12,8 +12,10 @@ L'applicazione offre una serie di funzionalità per creare, modificare, eliminar
 - De Iuliis Luca
 
 ---
-## Requiremnts Engineering 📃
+## Requirements Engineering 📃
 La **Documentazione** è presente nella directory Documenti, nel file **Rubrica_Gruppo12**
 
-
+___
+## Design 📲
+La **Documentazione** è presente nella directory Documenti, nel file Design: è fornito in essa il **diagramma delle classi**, la **decomposizione in moduli**, **diagrammi di sequenza** di alcuni dei diversi scenari proposti.
 
