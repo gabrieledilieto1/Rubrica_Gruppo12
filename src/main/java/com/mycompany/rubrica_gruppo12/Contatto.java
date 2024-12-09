@@ -8,7 +8,17 @@ public class Contatto implements Comparable<Contatto> {
     private Email mail;
     private NumTelefono numeri;
     
-    //Costruttore
+   /**
+    * @brief Costruttre classe Contatto
+    * @param nome
+    * @param cognome
+    * @param mail
+    * @param numeri
+    * @throws NomeECognomeMancanteException 
+    * 
+    * @pre le stringhe nome e cognome vengono fornite
+    * @post Viene create un'istanze della classe Contatto contenente nome e/o cognome.
+    */
     public Contatto(String nome, String cognome, Email mail, NumTelefono numeri) throws NomeECognomeMancanteException{ 
         if (nome == null && cognome == null){
             /* Tirare l'eccezione*/   
@@ -22,7 +32,14 @@ public class Contatto implements Comparable<Contatto> {
     }
 
     
-    
+    /**
+     * @brief Setter del Nome
+     * @param nome
+     * @throws NomeECognomeMancanteException 
+     * 
+     * @pre
+     * @post
+     */
      public void setNome(String nome) throws NomeECognomeMancanteException{
         if (nome == null && this.cognome == null ) { 
             /*Tirare l'eccezione*/  
