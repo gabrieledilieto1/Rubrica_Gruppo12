@@ -78,9 +78,10 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        /*
         contacts = FXCollections.observableArrayList();
         tblContatti.setItems(contacts);
-        
+        */
         /*
         rubrica = new Rubrica();
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
@@ -88,12 +89,14 @@ public class PrimaryController implements Initializable {
         
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
+        tblContatti.setItems(contacts);
         
         //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
         btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> fldNome.getText().isEmpty() || fldCognome.getText().isEmpty(), fldNome.textProperty(), fldCognome.textProperty() ));
        
     }    
     
+    /*
     @FXML
     private void aggiungiContatto(ActionEvent event)  throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
         // Creazione di un oggetto Email
@@ -116,6 +119,7 @@ public class PrimaryController implements Initializable {
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
 }
+*/
 
     @FXML
     private void cercaContatto(javafx.event.ActionEvent event) {
@@ -128,5 +132,10 @@ public class PrimaryController implements Initializable {
     @FXML
     private void esportaContatto(javafx.event.ActionEvent event) {
     }
-     
+
+    @FXML
+    private void aggiungiContatto(javafx.event.ActionEvent event) {
+    }
+
+    
 }
