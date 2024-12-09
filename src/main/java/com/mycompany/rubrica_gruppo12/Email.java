@@ -6,16 +6,22 @@ import java.util.HashSet;
 public class Email {
     HashSet<String> mail;
 
-    // Costruttore
+    /**
+     * @brief Costruttore della vlasse Email.
+     * @post Inizializza l'insieme delle email come vuoto
+     */
     public Email() {
         this.mail = new HashSet<>();
     }
 
-    /*
-      * Controlla se l'inserimento è = null, 
-      * controlla che non ci sia un duplicato,
-      * nel caso che l'inserimento è  un duplicato, mantiene l'inserimento originale.
-    */
+    /**
+     * @brief Agginge un'email all'insieme, evitando duplicati
+     * @param c la stringa che rappresetna l'email da aggiungere
+     * 
+     * @pre L'email fornita non deve essere null.
+     * @post Se l'email non è duplicata, viene aggiunta all'insieme; in caso contrario, l'email originale viene mantenuta.
+     * 
+     */
     public void aggiungiEmail(String c) {
         if (c != null) {
             if (!mail.contains(c)) {
@@ -28,7 +34,17 @@ public class Email {
         }
     }
 
-    // Modifica un'e-mail esistente
+   /**
+    * @brief Modifica un'e-mail esistente nell'insieme, rimuovendo quella originale e aggiungendone una nuova.
+    * @param og l'email originale da modificare.
+    * @param mod la nuova email da aggiungere
+    * @throws DuplicatiException la nuova email è già presente
+    * 
+    * @pre L'e-mail originale deve esistere nell'insieme per poter essere rimossa.
+     *      La nuova e-mail non deve già esistere come duplicato nell'insieme.
+     * @post Se l'e-mail originale esiste ed è stata rimossa, la nuova e-mail viene aggiunta,
+     *       a meno che non sia già presente come duplicato.
+    */
     public void modificaEmail(String og, String mod) throws DuplicatiException {
         // Rimuove l'e-mail originale
         if (og != null) {
@@ -53,6 +69,14 @@ public class Email {
         }
     }
 
+    /**
+     * @brief Restituisce una rappresentazione testuale delle e-mail nell'insieme.
+     *
+     * @pre L'insieme delle e-mail non deve essere null (può essere vuoto).
+     * @post Restituisce una stringa contenente tutte le e-mail separate da uno spazio.
+     *
+     * @return Una stringa che rappresenta l'insieme delle e-mail memorizzate.
+     */
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();

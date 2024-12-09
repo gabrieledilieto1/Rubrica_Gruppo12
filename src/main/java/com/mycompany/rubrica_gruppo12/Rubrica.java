@@ -11,37 +11,55 @@ import java.io.IOException;
 import java.util.TreeSet;
 import java.util.HashSet;
 
-//SE VUOI METTERE LA CompareTo devi mettere: Rubrica implements Comparable<>
+/**
+ * Classe che rappresenta una rubrica contenente un insieme di contatti.
+ * Consente operazioni come aggiunta, ricerca, esportazione e importazione di contatti.
+ */
 public class Rubrica{
     
      private TreeSet<Contatto> elenco;
      private HashSet<Contatto> filtro;
      
-     //COSTRUTTORE
+     /**
+     * @brief Costruttore della classe Rubrica.
+     * @pre Nessuna.
+     * @post Inizializza l'elenco dei contatti come vuoto.
+     */
     public Rubrica(){
         this.elenco = new TreeSet<>();
     }
-    //AGGIUNTA DEL CONTATTO ALLA RUBRICA
+    /**
+     * @brief Aggiunge un contatto alla rubrica.
+     * 
+     * @pre Il contatto fornito non deve essere nullo e deve essere un'istanza valida di Contatto.
+     * @post Il contatto viene aggiunto all'elenco, se non già presente.
+     *
+     * @param c Il contatto da aggiungere alla rubrica.
+     */
     public void aggiungiContatto(Contatto c) {
         elenco.add(c); 
     }   
-
+    
+    /**
+     * @brief Restituisce l'elenco dei contatti nella rubrica.
+     * 
+     * 
+     * @post Restituisce l'elenco corrente dei contatti memorizzati.
+     *
+     * @return Un TreeSet contenente i contatti.
+     */
     public TreeSet<Contatto> getElenco() {
         return this.elenco;
     }
-     
     
-    @Override
-    public String toString() {
-        StringBuffer sb = new StringBuffer();
-        System.out.println("L'elenco è formato da:");
-            for (Contatto c : elenco){
-                sb.append(c);
-                sb.append("\n");
-            }
-        return sb.toString();
-    }        
-    
+    /**
+     * Filtra i contatti nella rubrica in base a un criterio di ricerca (nome o cognome).
+     * 
+     * @pre Il parametro cerca non deve essere null.
+     * @post L'insieme filtro contiene solo i contatti che corrispondono al criterio di ricerca.
+     *
+     * @param cerca Il criterio di ricerca (nome o cognome).
+     */
        public void Ricerca(String cerca){
     if (!filtro.isEmpty()){    
      filtro.clear();
@@ -57,7 +75,15 @@ public class Rubrica{
     
     
     
-    //ESPORTA UNA RUBRICA SU UN FILE 
+  /**
+     * Esporta l'elenco dei contatti in un file CSV.
+     * 
+     * @pre L'elenco deve essere non nullo (può essere vuoto).
+     * @post Il file specificato contiene l'elenco dei contatti in formato CSV.
+     *
+     * @param filePath Il percorso del file in cui esportare la rubrica.
+     * @throws IOException Se si verifica un errore durante la scrittura del file.
+     */
     public void esporta(String filePath) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
              // Aggiungere l'intestazione
@@ -77,7 +103,19 @@ public class Rubrica{
     }
 
     
-    //IMPORTA UNA RUBRICA DA UN FILE 
+   /**
+     * Importa i contatti da un file CSV e li aggiunge alla rubrica.
+     * 
+     * @pre Il file deve esistere e avere un formato valido. Ogni riga deve contenere 
+     *      nome, cognome, email e numero di telefono separati da virgole.
+     * @post I contatti validi vengono aggiunti all'elenco, ignorando le righe non valide.
+     *
+     * @param filePath Il percorso del file CSV da cui importare i contatti.
+     * @throws IOException Se si verifica un errore durante la lettura del file.
+     * @throws NomeECognomeMancanteException Se nome e cognome non sono validi.
+     * @throws NumeroTelefonoNonValidoException Se il numero di telefono ha un formato non valido.
+     * @throws DuplicatiException Se un contatto già esiste nella rubrica.
+     */
     public void importa(String filePath) throws IOException, NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -111,4 +149,24 @@ public class Rubrica{
             throw e;
         }
     }
+    
+    /**
+     * @brief Restituisce una rappresentazione testuale della rubrica, con tutti i contatti elencati.;;
+     * 
+     * @pre L'elenco non deve essere nullo (può essere vuoto).
+     * @post Restituisce una stringa con i dettagli dei contatti, uno per riga.
+     *
+     * @return Una stringa che rappresenta l'elenco dei contatti nella rubrica.
+     */
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        System.out.println("L'elenco è formato da:");
+            for (Contatto c : elenco){
+                sb.append(c);
+                sb.append("\n");
+            }
+        return sb.toString();
+    }        
+    
 }
