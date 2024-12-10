@@ -77,7 +77,7 @@ public class Rubrica{
     }     
     if (cerca != null){      
     for (Contatto c: elenco) {   
-       if (c.cognome.equals(cerca) || c.nome.equals(cerca)){  
+       if (c.cognome.contains(cerca) || c.nome.contains(cerca)){  
        filtro.add(c);   
        } 
     }
