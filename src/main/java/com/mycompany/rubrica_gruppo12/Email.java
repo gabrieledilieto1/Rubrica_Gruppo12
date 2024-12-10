@@ -16,7 +16,7 @@ public class Email {
 
     /**
      * @brief Agginge un'email all'insieme, evitando duplicati
-     * @param c la stringa che rappresetna l'email da aggiungere
+     * @param c la stringa che rappresenta l'email da aggiungere
      * 
      * @pre L'email fornita non deve essere null.
      * @post Se l'email non è duplicata, viene aggiunta all'insieme; in caso contrario, l'email originale viene mantenuta.

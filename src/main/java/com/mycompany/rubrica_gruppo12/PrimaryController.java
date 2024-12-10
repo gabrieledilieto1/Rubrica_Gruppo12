@@ -50,13 +50,10 @@ public class PrimaryController implements Initializable {
     private TextField txtCercaContatto;
     @FXML
     private Button btnCerca;
-    @FXML
+    
     private Label fldNome;
-    @FXML
     private Label fldNumTelefono;
-    @FXML
     private Label fldCognome;
-    @FXML
     private Label fldEmail;
     @FXML
     private TableView<Contatto> tblContatti;
@@ -71,58 +68,67 @@ public class PrimaryController implements Initializable {
     
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
+    @FXML
+    private Label lblNome;
+    @FXML
+    private Label lblNumTelefono;
+    @FXML
+    private Label lblCognome;
+    @FXML
+    private Label lblEmail;
     
-    /**
-     * Initializes the controller class.
-     */
+   
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        /*
-        contacts = FXCollections.observableArrayList();
-        tblContatti.setItems(contacts);
-        */
-        /*
-        rubrica = new Rubrica();
-        tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
-        */
         
+        contacts = FXCollections.observableArrayList(); //istanzio una array list osservabile
+        tblContatti.setItems(contacts); //colegamento tra le tabelle
+
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
-        tblContatti.setItems(contacts);
-        
-        //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
-        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> fldNome.getText().isEmpty() || fldCognome.getText().isEmpty(), fldNome.textProperty(), fldCognome.textProperty() ));
        
+        //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
+        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> txtNome.getText().isEmpty() || txtCognome.getText().isEmpty(), txtNome.textProperty(), txtCognome.textProperty() ));
+        
     }    
     
-    /*
     @FXML
-    private void aggiungiContatto(ActionEvent event)  throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
+    private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
+        
         // Creazione di un oggetto Email
         Email email = new Email();
-        if (!fldEmail.getText().isEmpty()) {
-            email.aggiungiEmail(fldEmail.getText());
+        if (!txtEmail.getText().isEmpty()) {
+            email.aggiungiEmail(txtEmail.getText());
         }
         // Creazione di un oggetto NumTelefono
         NumTelefono numTelefono = new NumTelefono();
-        if (!fldNumTelefono.getText().isEmpty()) {
-            numTelefono.aggiungiNumTelefono(fldNumTelefono.getText());
+        if (!txtNumTelefono.getText().isEmpty()) {
+            numTelefono.aggiungiNumTelefono(txtNumTelefono.getText());
         }
         String nome = txtNome.getText();
         String cognome = txtCognome.getText();
         //Crea il contatto
         Contatto contatto= new Contatto(nome, cognome, email, numTelefono);
         //Aggiungo il contatto alla rubrica
-        //contacts.add(new Contatto(fldNome.getText(), fldCognome.getText(), email, numTelefono ));
-        rubrica.aggiungiContatto(contatto);
+        contacts.add(new Contatto(txtNome.getText(), txtCognome.getText(), email, numTelefono ));
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
-}
-*/
+    }
 
+    //DA RIVEDERE
     @FXML
     private void cercaContatto(javafx.event.ActionEvent event) {
+   
+        Rubrica rubrica = new Rubrica();
+        String ricerca = txtCercaContatto.getText();
+        if (ricerca != null && !ricerca.trim().isEmpty()){
+            rubrica.Ricerca(ricerca);
+            tblContatti.setItems(FXCollections.observableArrayList(rubrica.getFiltro())); //mostra i contatti filtrati
+        }else {
+             tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco())); //Mostra la lista completa
+        }
     }
 
     @FXML
@@ -133,9 +139,6 @@ public class PrimaryController implements Initializable {
     private void esportaContatto(javafx.event.ActionEvent event) {
     }
 
-    @FXML
-    private void aggiungiContatto(javafx.event.ActionEvent event) {
-    }
-
+    
     
 }

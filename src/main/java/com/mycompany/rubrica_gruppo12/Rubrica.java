@@ -28,6 +28,27 @@ public class Rubrica{
     public Rubrica(){
         this.elenco = new TreeSet<>();
     }
+    
+     /**
+     * @brief Restituisce l'elenco dei contatti nella rubrica.
+     * 
+     * 
+     * @post Restituisce l'elenco corrente dei contatti memorizzati.
+     *
+     * @return Un TreeSet contenente i contatti.
+     */
+    public TreeSet<Contatto> getElenco() {
+        return this.elenco;
+    }
+
+    /**
+     * @brief Restituisce l'elenco dei contatti filtrati nella rubrica.
+     * @return Un HashSet contenente i contatti filtrati
+     */
+    public HashSet<Contatto> getFiltro() {
+        return filtro;
+    }
+    
     /**
      * @brief Aggiunge un contatto alla rubrica.
      * 
@@ -40,17 +61,7 @@ public class Rubrica{
         elenco.add(c); 
     }   
     
-    /**
-     * @brief Restituisce l'elenco dei contatti nella rubrica.
-     * 
-     * 
-     * @post Restituisce l'elenco corrente dei contatti memorizzati.
-     *
-     * @return Un TreeSet contenente i contatti.
-     */
-    public TreeSet<Contatto> getElenco() {
-        return this.elenco;
-    }
+   
     
     /**
      * Filtra i contatti nella rubrica in base a un criterio di ricerca (nome o cognome).

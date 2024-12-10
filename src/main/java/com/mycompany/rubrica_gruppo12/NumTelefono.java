@@ -28,12 +28,13 @@ public class NumTelefono {
     public void aggiungiNumTelefono(String c) throws NumeroTelefonoNonValidoException, DuplicatiException {
         if (c != null) {
         // Controlla se il numero di telefono è valido
+        /*
             if (!c.matches("\\+?\\d{8,15}")) { //  numero di telefono valido (opzionale prefisso internazionale e 8-15 cifre)
                 // Lancia l'eccezione se il formato del numero non è valido
                 System.out.println(c);
                 throw new NumeroTelefonoNonValidoException();
             }
-
+        */
             // Aggiunge il numero solo se non è duplicato
             if (!numeri.add(c)) {
                 throw new DuplicatiException(c);
