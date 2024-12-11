@@ -61,7 +61,12 @@ public class Rubrica{
         elenco.add(c); 
     }   
     
-   
+    
+    public void rimuoviContatto(Contatto c){
+        if (elenco.contains(c)){
+            elenco.remove(c);
+        }
+    }
     
     /**
      * Filtra i contatti nella rubrica in base a un criterio di ricerca (nome o cognome).

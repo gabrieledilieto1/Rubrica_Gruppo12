@@ -9,6 +9,9 @@ import com.mycompany.rubrica_gruppo12.Contatto;
 import com.mycompany.rubrica_gruppo12.Email;
 import com.mycompany.rubrica_gruppo12.NumTelefono;
 import com.mycompany.rubrica_gruppo12.Rubrica;
+import com.mycompany.exception.DuplicatiException;
+import com.mycompany.exception.NomeECognomeMancanteException;
+import com.mycompany.exception.NumeroTelefonoNonValidoException;
 import java.util.TreeSet;
 
 /**
@@ -17,42 +20,26 @@ import java.util.TreeSet;
  */
 public class TestAggiunta {
     
-    private Rubrica rubrica;
+    Rubrica rubrica;
     
     public void TestAggiunta(){
+    rubrica = new Rubrica();
       }  
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-        rubrica = new Rubrica();
-    }
-    
-    @AfterEach
-    public void tearDown() {   
-   }
-    
-    @test
-    public void aggiungidati1(){
+    public void aggiungidati1() throws NomeECognomeMancanteException {
     System.out.println("Testo aggiungidati1");  
-    rubrica.add(new Contatto("Luca","De Iuliis",null,null));   
+    Contatto c = new Contatto("Luca","De Iuliis",null,null);
+    rubrica.aggiungiContatto(c);
     }
     
-    @test
-    public void aggiungidati2(){
+    public void aggiungidati2()  throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException,DuplicatiException  {
     System.out.println("Testo aggiungidati2");  
     Email mail = new Email() ;
     mail.aggiungiEmail("ldeiuliis@outlook.com");
     NumTelefono numTelefono = new NumTelefono();
     numTelefono.aggiungiNumTelefono("720000000");
-    rubrica.add(new Contatto("Luca","De Iuliis",mail,numTelefono));   
+    Contatto c = new Contatto("Luca","De Iuliis",mail,numTelefono);
+    rubrica.aggiungiContatto(c);   
     }
     
     
