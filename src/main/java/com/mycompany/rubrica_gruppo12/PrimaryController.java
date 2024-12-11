@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -61,10 +62,6 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String > clmCognome;
     @FXML
     private TableColumn<Contatto, String> clmNome;
-    @FXML
-    private Button btnImporta;
-    @FXML
-    private Button btnEsporta;
     
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
@@ -76,6 +73,12 @@ public class PrimaryController implements Initializable {
     private Label lblCognome;
     @FXML
     private Label lblEmail;
+    @FXML
+    private Button btnElimina;
+    @FXML
+    private MenuItem mnImporta;
+    @FXML
+    private MenuItem mnEsporta;
     
    
     
@@ -116,11 +119,20 @@ public class PrimaryController implements Initializable {
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
     }
+    
 
     //DA RIVEDERE
     @FXML
-    private void cercaContatto(javafx.event.ActionEvent event) {
+    private Contatto cercaContatto(String nome) {
    
+        for(Contatto contatto: contacts){
+            if(contatto.getNome().equalsIgnoreCase(nome)){
+                 return contatto; 
+            } 
+        }
+        System.out.println("Contatto non trovato.");
+        return null; // Restituisce null se il contatto non è stato trovato
+        /*
         Rubrica rubrica = new Rubrica();
         String ricerca = txtCercaContatto.getText();
         if (ricerca != null && !ricerca.trim().isEmpty()){
@@ -128,16 +140,25 @@ public class PrimaryController implements Initializable {
             tblContatti.setItems(FXCollections.observableArrayList(rubrica.getFiltro())); //mostra i contatti filtrati
         }else {
              tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco())); //Mostra la lista completa
+        }*/
+    }
+
+    @FXML
+    private void eliminaContatto(javafx.event.ActionEvent event) {
+        
+        //Ottieni lo studente selezionato
+        Contatto selectedContatto = tblContatti.getSelectionModel().getSelectedItem();
+        
+        //Controllo se lo studente selezionato è presente
+        if ( selectedContatto != null){
+            //rimozione studente dalla collezione
+            contacts.remove(selectedContatto);
+        } else {
+            System.out.println("Nessun Contatto Selezionato");
         }
     }
 
-    @FXML
-    private void importaContatto(javafx.event.ActionEvent event) {
-    }
-
-    @FXML
-    private void esportaContatto(javafx.event.ActionEvent event) {
-    }
+    
 
     
     
