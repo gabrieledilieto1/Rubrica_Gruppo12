@@ -123,8 +123,9 @@ public class PrimaryController implements Initializable {
 
     //DA RIVEDERE
     @FXML
-    private Contatto cercaContatto(String nome) {
+    private Contatto cercaContatto(javafx.event.ActionEvent event) {
    
+        String nome = txtCercaContatto.getText();
         for(Contatto contatto: contacts){
             if(contatto.getNome().equalsIgnoreCase(nome)){
                  return contatto; 
