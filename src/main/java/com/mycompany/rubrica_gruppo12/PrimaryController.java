@@ -123,13 +123,15 @@ public class PrimaryController implements Initializable {
 
     //DA RIVEDERE
     @FXML
-    private void cercaContatto(String nome) {
+    private Contatto cercaContatto(String nome) {
    
         for(Contatto contatto: contacts){
             if(contatto.getNome().equalsIgnoreCase(nome)){
-                 
-            }
+                 return contatto; 
+            } 
         }
+        System.out.println("Contatto non trovato.");
+        return null; // Restituisce null se il contatto non è stato trovato
         /*
         Rubrica rubrica = new Rubrica();
         String ricerca = txtCercaContatto.getText();
