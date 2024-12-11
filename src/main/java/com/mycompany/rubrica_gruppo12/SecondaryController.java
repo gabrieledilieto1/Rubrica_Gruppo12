@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
@@ -68,6 +69,8 @@ public class SecondaryController implements Initializable {
     private MenuItem mnImporta;
     @FXML
     private MenuItem mnEsporta;
+    @FXML
+    private Menu mnFile;
 
     /**
      * Initializes the controller class.
@@ -79,6 +82,30 @@ public class SecondaryController implements Initializable {
 
     @FXML
     private void eliminaContatto(ActionEvent event) {
+    }
+
+    @FXML
+    private void aggiungiContatto(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void cercaContatto(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void modificaContatto(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void elimina1Contatto(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) {
     }
 
     

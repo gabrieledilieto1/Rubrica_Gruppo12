@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SortEvent;
 import javafx.scene.control.TableColumn;
@@ -79,6 +80,8 @@ public class PrimaryController implements Initializable {
     private MenuItem mnImporta;
     @FXML
     private MenuItem mnEsporta;
+    @FXML
+    private Menu mnFile;
     
    
     
@@ -120,7 +123,33 @@ public class PrimaryController implements Initializable {
         
     }
     
+private ObservableList<Contatto> filteredContacts = FXCollections.observableArrayList(); // Lista filtrata
 
+@FXML
+private void cercaContatto(javafx.event.ActionEvent event) {
+    String testoRicerca = txtCercaContatto.getText().toLowerCase(); // Legge il testo e lo converte in minuscolo
+
+    // Filtra la lista di contatti
+    filteredContacts.clear(); // Puliamo la lista filtrata
+    for (Contatto contatto : contacts) { // "contacts" è la lista principale
+        if (contatto.getNome().toLowerCase().contains(testoRicerca) || contatto.getCognome().toLowerCase().contains(testoRicerca)) { // Cerca contatti parziali
+            filteredContacts.add(contatto); // Aggiunge il contatto alla lista filtrata
+        }
+    }
+
+    // Controlla se ci sono risultati
+    if (filteredContacts.isEmpty()) {
+        System.out.println("Nessun contatto trovato.");
+    } else {
+        System.out.println("Contatti trovati: " + filteredContacts.size());
+    }
+
+    // Aggiorna la visualizzazione della lista (esempio con una TableView)
+    tblContatti.setItems(filteredContacts); // Aggiorna la lista mostrata nella TableView
+}
+
+
+    /*
     //DA RIVEDERE
     @FXML
     private Contatto cercaContatto(javafx.event.ActionEvent event) {
@@ -128,22 +157,16 @@ public class PrimaryController implements Initializable {
         String nome = txtCercaContatto.getText();
         for(Contatto contatto: contacts){
             if(contatto.getNome().equalsIgnoreCase(nome)){
+               System.out.println("Contatto trovato.");
                  return contatto; 
-            } 
+            } else{
+                // Restituisce null se il contatto non è stato trovato
+            }
         }
-        System.out.println("Contatto non trovato.");
-        return null; // Restituisce null se il contatto non è stato trovato
-        /*
-        Rubrica rubrica = new Rubrica();
-        String ricerca = txtCercaContatto.getText();
-        if (ricerca != null && !ricerca.trim().isEmpty()){
-            rubrica.Ricerca(ricerca);
-            tblContatti.setItems(FXCollections.observableArrayList(rubrica.getFiltro())); //mostra i contatti filtrati
-        }else {
-             tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco())); //Mostra la lista completa
-        }*/
+            System.out.println("Contatto non trovato.");
+                return null;  
     }
-
+*/
     @FXML
     private void eliminaContatto(javafx.event.ActionEvent event) {
         

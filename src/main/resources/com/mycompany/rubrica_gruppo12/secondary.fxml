@@ -32,10 +32,10 @@
                               <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
                               <Label layoutX="9.0" layoutY="247.0" text="EMAIL" />
                               <TextField fx:id="txtEmail" layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
-                              <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" text="Aggiungi" />
+                              <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" onAction="#aggiungiContatto" text="Aggiungi" />
                               <MenuBar layoutX="17.0" layoutY="8.0">
                                 <menus>
-                                  <Menu mnemonicParsing="false" text="File">
+                                  <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
                                     <items>
                                           <MenuItem fx:id="mnImporta" mnemonicParsing="false" text="Importa" />
                                           <MenuItem fx:id="mnEsporta" mnemonicParsing="false" text="Esporta" />
@@ -60,7 +60,7 @@
                         <AnchorPane>
                            <children>
                               <TextField fx:id="txtCerca" layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
-                              <Button fx:id="btnCerca" layoutX="249.0" layoutY="5.0" mnemonicParsing="false" text="Cerca" />
+                              <Button fx:id="btnCerca" layoutX="249.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                            </children>
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">
@@ -70,7 +70,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="btnTornaIndietro" layoutX="11.0" layoutY="10.0" mnemonicParsing="false" text="←" />
+                              <Button fx:id="btnTornaIndietro" layoutX="11.0" layoutY="10.0" mnemonicParsing="false" onAction="#goBack" text="←" />
                               <Label fx:id="lblNomeContatto" layoutX="41.0" layoutY="62.0" text="NOME" />
                               <Label fx:id="lblCognomeContatto" layoutX="100.0" layoutY="62.0" text="COGNOME" />
                               <Label fx:id="lblNumtelefono1" layoutX="40.0" layoutY="110.0" text="NUMERO TELEFONO" />
@@ -79,8 +79,8 @@
                               <Label fx:id="lblEmail1" layoutX="292.0" layoutY="110.0" text="EMAIL" />
                               <Label fx:id="lblEmail2" layoutX="292.0" layoutY="169.0" text="EMAIL" />
                               <Label fx:id="lblEmail3" layoutX="292.0" layoutY="231.0" text="EMAIL" />
-                              <Button fx:id="btnModifica" layoutX="78.0" layoutY="278.0" mnemonicParsing="false" text="Modifica" />
-                              <Button fx:id="btnElimina1" layoutX="252.0" layoutY="278.0" mnemonicParsing="false" text="Elimina" />
+                              <Button fx:id="btnModifica" layoutX="78.0" layoutY="278.0" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
+                              <Button fx:id="btnElimina1" layoutX="252.0" layoutY="278.0" mnemonicParsing="false" onAction="#elimina1Contatto" text="Elimina" />
                            </children>
                         </AnchorPane>
                      </items>

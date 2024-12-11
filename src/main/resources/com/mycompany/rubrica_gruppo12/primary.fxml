@@ -34,7 +34,7 @@
                               <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" onAction="#aggiungiContatto" text="Aggiungi" />
                               <MenuBar layoutX="17.0" layoutY="8.0">
                                 <menus>
-                                  <Menu mnemonicParsing="false" text="File">
+                                  <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
                                        <items>
                                           <MenuItem fx:id="mnImporta" mnemonicParsing="false" text="Importa" />
                                           <MenuItem fx:id="mnEsporta" mnemonicParsing="false" text="Esporta" />
