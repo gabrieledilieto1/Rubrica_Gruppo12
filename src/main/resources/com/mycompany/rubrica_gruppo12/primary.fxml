@@ -36,8 +36,8 @@
                                 <menus>
                                   <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
                                        <items>
-                                          <MenuItem fx:id="mnImporta" mnemonicParsing="false" text="Importa" />
-                                          <MenuItem fx:id="mnEsporta" mnemonicParsing="false" text="Esporta" />
+                                          <MenuItem fx:id="mnImporta" mnemonicParsing="false" onAction="#importaRubrica" text="Importa" />
+                                          <MenuItem fx:id="mnEsporta" mnemonicParsing="false" onAction="#esportaRubrica" text="Esporta" />
                                        </items>
                                   </Menu>
                                 </menus>

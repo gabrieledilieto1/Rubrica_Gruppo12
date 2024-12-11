@@ -12,9 +12,16 @@ import com.mycompany.rubrica_gruppo12.Contatto;
 import com.mycompany.rubrica_gruppo12.Email;
 import com.mycompany.rubrica_gruppo12.NumTelefono;
 import java.awt.event.ActionEvent;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -30,6 +37,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -161,8 +170,62 @@ private void cercaContatto(javafx.event.ActionEvent event) {
         }
     }
 
-    
+    @FXML
+    private void importaRubrica(javafx.event.ActionEvent event) throws NumeroTelefonoNonValidoException, DuplicatiException, NomeECognomeMancanteException {
+        
+        contacts.removeAll(contacts);
+        
+        FileChooser fc = new FileChooser();
+        File f = fc.showOpenDialog(new Stage());
+        
+        if(f == null) return; 
+        
+        try(Scanner scan = new Scanner(new BufferedReader(new FileReader(f)))){
+          scan.useDelimiter("[;\n]");
+          
+          while(scan.hasNext()){
+            // Legge i dati base del contatto
+            String nome = scan.next();
+            String cognome = scan.next();
+            String emailString = scan.next(); // Stringa rappresentante l'email
+            String numeroString = scan.next(); // Stringa rappresentante il numero di telefono
 
+             // Crea l'oggetto Email e aggiunge l'indirizzo letto
+            Email email = new Email();
+            email.aggiungiEmail(emailString); // Metodo per aggiungere email al set interno
+
+            // Crea l'oggetto NumTelefono e aggiunge il numero letto
+            NumTelefono numero = new NumTelefono();
+            numero.aggiungiNumTelefono(numeroString); // Metodo per aggiungere il numero al set interno
+
+            // Aggiunge il nuovo contatto alla lista
+            contacts.add(new Contatto(nome, cognome, email, numero));}         
+        } catch(IOException e){
+            System.out.println("Errore! Impossibile caricare il file!"+ e.getMessage());
+        }
+    }
     
+    
+    @FXML
+    private void esportaRubrica(javafx.event.ActionEvent event) {
+        
+        FileChooser fc = new FileChooser();
+        
+        File f = fc.showSaveDialog(txtNome.getParent().getScene().getWindow());
+        
+        if(f == null) return; 
+        
+        try( PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(f))) ) {
+            for(Contatto con : contacts){
+                pw.println(con.getNome()+";"+con.getCognome()+";"+con.getMail()+";"+con.getNumeri());
+            }
+        } catch (IOException e){
+            System.out.println("Errore! Impossibile salvare il file!"+ e.getMessage());
+
+        }
+       
+        
+    }
+     
     
 }
