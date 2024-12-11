@@ -1,6 +1,8 @@
 package com.mycompany.rubrica_gruppo12;
 
+import com.mycompany.exception.DuplicatiException;
 import com.mycompany.exception.NomeECognomeMancanteException;
+import com.mycompany.exception.NumeroTelefonoNonValidoException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +33,43 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NumeroTelefonoNonValidoException, DuplicatiException, NomeECognomeMancanteException {
+        // Creazione della rubrica
+        Rubrica rubrica = new Rubrica();
+
+        // Creazione di alcuni contatti
+        Email email1 = new Email();
+        email1.aggiungiEmail("giovanni.rossi@example.com");
+        
+        Email email2 = new Email();
+        email2.aggiungiEmail("maria.bianchi@example.com");
+        
+        Email email3 = new Email();
+        email3.aggiungiEmail("luigi.verdi@example.com");
+        
+        NumTelefono numTelefono1 = new NumTelefono();
+        NumTelefono numTelefono2 = new NumTelefono();
+        NumTelefono numTelefono3 = new NumTelefono();
+        numTelefono1.aggiungiNumTelefono("12346778");
+        numTelefono2.aggiungiNumTelefono("664345678");
+        numTelefono2.aggiungiNumTelefono("65445678");
+
+
+        // Creazione dei contatti con l'oggetto Email
+        Contatto contatto1 = new Contatto("Giovanni", "Rossi", email1,  numTelefono1);
+        Contatto contatto2 = new Contatto("Maria", "Bianchi", email2,  numTelefono2);
+        Contatto contatto3 = new Contatto("Luigi", "Verdi", email3, numTelefono3);
+
+        // Aggiungi contatti alla rubrica
+        rubrica.aggiungiContatto(contatto1);
+        rubrica.aggiungiContatto(contatto2);
+        rubrica.aggiungiContatto(contatto3);
+
+        // Verifica che l'ordinamento avvenga correttamente
+        System.out.println("Contatti ordinati:");
+        for (Contatto contatto : rubrica.getElenco()) {
+            System.out.println(contatto);
+        }
         /*try {
           // Creazione della rubrica
             Rubrica rubrica = new Rubrica();
