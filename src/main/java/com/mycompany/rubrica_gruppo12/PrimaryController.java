@@ -95,7 +95,7 @@ public class PrimaryController implements Initializable {
     }    
     
     @FXML
-    private void aggiungiContatto(ActionEvent event)  throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
+    private void aggiungiContatto(ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException{
         // Creazione di un oggetto Email
         Email email = new Email();
         if (!fldEmail.getText().isEmpty()) {

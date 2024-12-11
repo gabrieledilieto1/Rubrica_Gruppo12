@@ -14,8 +14,8 @@ import java.util.HashSet;
 //SE VUOI METTERE LA CompareTo devi mettere: Rubrica implements Comparable<>
 public class Rubrica{
     
-     private TreeSet<Contatto> elenco;
-     private HashSet<Contatto> filtro;
+    private TreeSet<Contatto> elenco;
+    private HashSet<Contatto> filtro;
      
      //COSTRUTTORE
     public Rubrica(){
@@ -42,17 +42,17 @@ public class Rubrica{
         return sb.toString();
     }        
     
-       public void Ricerca(String cerca){
-    if (!filtro.isEmpty()){    
-     filtro.clear();
-    }     
-    if (cerca != null){      
-    for (Contatto c: elenco) {   
-       if (c.cognome.equals(cerca) || c.nome.equals(cerca)){  
-       filtro.add(c);   
-       } 
-    }
-    }
+    public void ricerca(String cerca){
+        if (!filtro.isEmpty()){    
+            filtro.clear();
+        }     
+        if (cerca != null){      
+            for (Contatto c: elenco) {   
+                if (c.cognome.equals(cerca) || c.nome.equals(cerca)){  
+                    filtro.add(c);   
+                } 
+            }
+        }
     }
     
     
