@@ -52,20 +52,12 @@ public class PrimaryController implements Initializable {
     private TextField txtCercaContatto;
     @FXML
     private Button btnCerca;
-    
-    private Label fldNome;
-    private Label fldNumTelefono;
-    private Label fldCognome;
-    private Label fldEmail;
     @FXML
     private TableView<Contatto> tblContatti;
     @FXML
     private TableColumn<Contatto, String > clmCognome;
     @FXML
     private TableColumn<Contatto, String> clmNome;
-    
-    private ObservableList<Contatto> contacts; 
-    private Rubrica rubrica; 
     @FXML
     private Label lblNome;
     @FXML
@@ -83,7 +75,14 @@ public class PrimaryController implements Initializable {
     @FXML
     private Menu mnFile;
     
-   
+    private Label fldNome;
+    private Label fldNumTelefono;
+    private Label fldCognome;
+    private Label fldEmail;
+    
+    private ObservableList<Contatto> filteredContacts = FXCollections.observableArrayList(); // Lista filtrata
+    private ObservableList<Contatto> contacts; 
+    private Rubrica rubrica; 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -123,7 +122,6 @@ public class PrimaryController implements Initializable {
         
     }
     
-private ObservableList<Contatto> filteredContacts = FXCollections.observableArrayList(); // Lista filtrata
 
 @FXML
 private void cercaContatto(javafx.event.ActionEvent event) {
@@ -148,25 +146,6 @@ private void cercaContatto(javafx.event.ActionEvent event) {
     tblContatti.setItems(filteredContacts); // Aggiorna la lista mostrata nella TableView
 }
 
-
-    /*
-    //DA RIVEDERE
-    @FXML
-    private Contatto cercaContatto(javafx.event.ActionEvent event) {
-   
-        String nome = txtCercaContatto.getText();
-        for(Contatto contatto: contacts){
-            if(contatto.getNome().equalsIgnoreCase(nome)){
-               System.out.println("Contatto trovato.");
-                 return contatto; 
-            } else{
-                // Restituisce null se il contatto non è stato trovato
-            }
-        }
-            System.out.println("Contatto non trovato.");
-                return null;  
-    }
-*/
     @FXML
     private void eliminaContatto(javafx.event.ActionEvent event) {
         

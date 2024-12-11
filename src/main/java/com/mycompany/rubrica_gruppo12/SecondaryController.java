@@ -28,32 +28,6 @@ import javafx.scene.control.TextField;
 public class SecondaryController implements Initializable {
 
     @FXML
-    private TextField txtNome;
-    @FXML
-    private TextField txtCognome;
-    @FXML
-    private TextField txtNumTelefono;
-    @FXML
-    private TextField txtEmail;
-    @FXML
-    private Button btnAggiungi;
-    @FXML
-    private TextField txtCerca;
-    @FXML
-    private Button btnCerca;
-    @FXML
-    private Button btnTornaIndietro;
-    @FXML
-    private Label lblNomeContatto;
-    @FXML
-    private Label lblCognomeContatto;
-    @FXML
-    private Label lblNumtelefono1;
-    @FXML
-    private Label lblNumtelefono2;
-    @FXML
-    private Label lblNumtelefono3;
-    @FXML
     private Label lblEmail1;
     @FXML
     private Label lblEmail2;
@@ -64,13 +38,17 @@ public class SecondaryController implements Initializable {
     @FXML
     private Button btnElimina;
     @FXML
-    private Button btnElimina1;
+    private Label lblNumTelefono3;
     @FXML
-    private MenuItem mnImporta;
+    private Label lblNumTelefono2;
     @FXML
-    private MenuItem mnEsporta;
+    private Label lblNumTelefono1;
     @FXML
-    private Menu mnFile;
+    private Label lblCognome;
+    @FXML
+    private Label lblNome;
+    @FXML
+    private Button btnGoBack;
 
     /**
      * Initializes the controller class.
@@ -80,33 +58,6 @@ public class SecondaryController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void eliminaContatto(ActionEvent event) {
-    }
-
-    @FXML
-    private void aggiungiContatto(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void cercaContatto(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void modificaContatto(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void elimina1Contatto(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void goBack(ActionEvent event) {
-    }
 
     
 }
