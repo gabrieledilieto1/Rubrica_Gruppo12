@@ -26,6 +26,7 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -94,7 +95,7 @@ public class PrimaryController implements Initializable {
     private Label fldCognome;
     private Label fldEmail;
     
-    private ObservableList<Contatto> filteredContacts = FXCollections.observableArrayList(); // Lista filtrata
+    private FilteredList<Contatto> filteredContacts;
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
     
@@ -104,7 +105,10 @@ public class PrimaryController implements Initializable {
         
         
         contacts = FXCollections.observableArrayList(); //istanzio una array list osservabile
-        tblContatti.setItems(contacts); //colegamento tra le tabelle
+        filteredContacts = new FilteredList<>(contacts, p->true);
+        
+        //tblContatti.setItems(contacts); //colegamento tra le tabelle
+        tblContatti.setItems(filteredContacts);
 
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
@@ -137,7 +141,29 @@ public class PrimaryController implements Initializable {
         
     }
     
+    @FXML
+private void cercaContatto(javafx.event.ActionEvent event) {
+    String testoRicerca = txtCercaContatto.getText().toLowerCase();
 
+    // Filtra i contatti in base al nome o cognome
+    filteredContacts.setPredicate(contatto -> {
+        if (testoRicerca == null || testoRicerca.isEmpty()) {
+            return true; // Mostra tutti i contatti
+        }
+        // Filtra per nome o cognome
+        return contatto.getNome().toLowerCase().contains(testoRicerca) || 
+               contatto.getCognome().toLowerCase().contains(testoRicerca);
+    });
+
+    if (filteredContacts.isEmpty()) {
+        System.out.println("Nessun contatto trovato.");
+    } else {
+        System.out.println("Contatti trovati: " + filteredContacts.size());
+    }
+}
+
+    
+/*
 @FXML
 private void cercaContatto(javafx.event.ActionEvent event) {
     String testoRicerca = txtCercaContatto.getText().toLowerCase(); // Legge il testo e lo converte in minuscolo
@@ -160,7 +186,8 @@ private void cercaContatto(javafx.event.ActionEvent event) {
     // Aggiorna la visualizzazione della lista (esempio con una TableView)
     tblContatti.setItems(filteredContacts); // Aggiorna la lista mostrata nella TableView
 }
-
+*/
+    
     @FXML
     private void eliminaContatto(javafx.event.ActionEvent event) {
         

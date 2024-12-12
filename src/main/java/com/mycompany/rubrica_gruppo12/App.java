@@ -15,8 +15,28 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    //private static Scene scene;
+      private static Stage primaryStage;
+    private static Scene primaryScene;
 
+    @Override
+    public void start(Stage stage) throws Exception {
+        primaryStage = stage;
+
+        // Carica la prima scena
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+        Parent root = loader.load();
+        primaryScene = new Scene(root);
+
+        primaryStage.setScene(primaryScene);
+        primaryStage.show();
+    }
+
+    // Metodo per accedere alla scena principale
+    public static void showPrimaryScene() {
+        primaryStage.setScene(primaryScene);
+    }
+    /*
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 640, 480);
@@ -32,8 +52,9 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+*/
+    public static void main(String[] args) {
 
-    public static void main(String[] args) throws NumeroTelefonoNonValidoException, DuplicatiException, NomeECognomeMancanteException {
         /*
         TEST ORDINAMENTO
         // Creazione della rubrica
@@ -119,6 +140,6 @@ public class App extends Application {
 */
          launch(args);
     }
+}
     
 
-}

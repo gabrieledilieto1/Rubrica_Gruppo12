@@ -98,6 +98,34 @@ public class SecondaryController implements Initializable {
     }
 
     @FXML
+private void goBack(ActionEvent event) {
+    App.showPrimaryScene();
+}
+    /*
+    @FXML
+private void goBack(ActionEvent event) {
+    try {
+        // Ottieni lo stage corrente
+        Stage stage = (Stage) btnGoBack.getScene().getWindow();
+
+        // Carica la prima scena
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+        Parent root = loader.load();
+
+        // Ottieni il controller della prima scena
+        PrimaryController primaryController = loader.getController();
+
+        // Passa i contatti al controller della prima scena
+        primaryController.setContatti(contacts);
+
+        // Imposta la nuova scena
+        stage.setScene(new Scene(root));
+    } catch (IOException e) {
+        System.err.println("Errore nel caricamento della prima schermata: " + e.getMessage());
+    }
+}
+*/
+   /* @FXML
     private void goBack(ActionEvent event) {
        try {
         // Carica la prima scena
@@ -118,6 +146,7 @@ public class SecondaryController implements Initializable {
         System.err.println("Errore nel caricamento della prima schermata: " + e.getMessage());
     }
     }
+*/
     
     
     
