@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.rubrica_gruppo12;
 
 import java.net.URL;
@@ -12,11 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
-import com.mycompany.rubrica_gruppo12.Contatto;
 import java.io.IOException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -59,12 +52,13 @@ public class SecondaryController implements Initializable {
     
     private ObservableList<Contatto> contacts;
 
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+         if (contacts == null) {
+        contacts = FXCollections.observableArrayList(); // Inizializza la lista se non esiste
+
+    }
     }    
 
     void setDettagliContatto(Contatto contattoSelezionato) {
@@ -96,62 +90,35 @@ public class SecondaryController implements Initializable {
         phoneIndex++;
     }
     }
-
-    @FXML
-private void goBack(ActionEvent event) {
-    App.showPrimaryScene();
-}
-    /*
-    @FXML
+    
+  @FXML
 private void goBack(ActionEvent event) {
     try {
-        // Ottieni lo stage corrente
-        Stage stage = (Stage) btnGoBack.getScene().getWindow();
-
-        // Carica la prima scena
+        // Carica la scena principale
         FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
         Parent root = loader.load();
 
-        // Ottieni il controller della prima scena
+        // Ottieni il controller della scena principale
         PrimaryController primaryController = loader.getController();
 
-        // Passa i contatti al controller della prima scena
+        // Passa la stessa lista 'contacts'
+        if (contacts == null) {
+            System.err.println("Errore: la lista dei contatti è null.");
+            return;
+        }
         primaryController.setContatti(contacts);
 
-        // Imposta la nuova scena
-        stage.setScene(new Scene(root));
-    } catch (IOException e) {
-        System.err.println("Errore nel caricamento della prima schermata: " + e.getMessage());
-    }
-}
-*/
-   /* @FXML
-    private void goBack(ActionEvent event) {
-       try {
-        // Carica la prima scena
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
-        Parent root = loader.load();
-
-        // Ottieni il controller della prima scena
-        PrimaryController primaryController = loader.getController();
-
-        // Passa la lista dei contatti al controller della prima scena
-        primaryController.setContatti(contacts); // Assumi che 'contacts' sia la lista di contatti condivisa
-
-        // Ottieni lo stage corrente e imposta la nuova scena
+        // Cambia scena
         Stage stage = (Stage) btnGoBack.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     } catch (IOException e) {
-        System.err.println("Errore nel caricamento della prima schermata: " + e.getMessage());
+        System.err.println("Errore nel caricamento della scena principale: " + e.getMessage());
     }
-    }
-*/
-    
-    
-    
-    
+}
 
 
     
 }
+
+

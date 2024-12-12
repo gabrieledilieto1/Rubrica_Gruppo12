@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.rubrica_gruppo12;
 
 import com.mycompany.exception.DuplicatiException;
 import com.mycompany.exception.NomeECognomeMancanteException;
 import com.mycompany.exception.NumeroTelefonoNonValidoException;
-import com.mycompany.rubrica_gruppo12.Contatto;
-import com.mycompany.rubrica_gruppo12.Email;
-import com.mycompany.rubrica_gruppo12.NumTelefono;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -142,7 +134,7 @@ public class PrimaryController implements Initializable {
     }
     
     @FXML
-private void cercaContatto(javafx.event.ActionEvent event) {
+    private void cercaContatto(javafx.event.ActionEvent event) {
     String testoRicerca = txtCercaContatto.getText().toLowerCase();
 
     // Filtra i contatti in base al nome o cognome
@@ -162,31 +154,6 @@ private void cercaContatto(javafx.event.ActionEvent event) {
     }
 }
 
-    
-/*
-@FXML
-private void cercaContatto(javafx.event.ActionEvent event) {
-    String testoRicerca = txtCercaContatto.getText().toLowerCase(); // Legge il testo e lo converte in minuscolo
-
-    // Filtra la lista di contatti
-    filteredContacts.clear(); // Puliamo la lista filtrata
-    for (Contatto contatto : contacts) { // "contacts" è la lista principale
-        if (contatto.getNome().toLowerCase().contains(testoRicerca) || contatto.getCognome().toLowerCase().contains(testoRicerca)) { // Cerca contatti parziali
-            filteredContacts.add(contatto); // Aggiunge il contatto alla lista filtrata
-        }
-    }
-
-    // Controlla se ci sono risultati
-    if (filteredContacts.isEmpty()) {
-        System.out.println("Nessun contatto trovato.");
-    } else {
-        System.out.println("Contatti trovati: " + filteredContacts.size());
-    }
-
-    // Aggiorna la visualizzazione della lista (esempio con una TableView)
-    tblContatti.setItems(filteredContacts); // Aggiorna la lista mostrata nella TableView
-}
-*/
     
     @FXML
     private void eliminaContatto(javafx.event.ActionEvent event) {
@@ -296,8 +263,19 @@ private void cercaContatto(javafx.event.ActionEvent event) {
 
     
     public void setContatti(ObservableList<Contatto> contatti) {
-        this.contacts = contatti;
-        tblContatti.setItems(contacts); // Aggiorna la TableView
+    if (contatti == null) {
+        System.err.println("Errore: la lista dei contatti è null.");
+        return;
     }
-    
+    this.contacts = contatti;
+
+    // Reinizializza la FilteredList solo se necessario
+    if (filteredContacts == null) {
+        filteredContacts = new FilteredList<>(contacts, p -> true);
+        tblContatti.setItems(filteredContacts); // Aggiorna la TableView
+    } else {
+        filteredContacts = new FilteredList<>(contacts, p -> true);
+        }
+    }
+   
 }

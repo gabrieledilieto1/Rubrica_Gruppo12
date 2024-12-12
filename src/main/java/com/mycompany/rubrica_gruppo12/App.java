@@ -10,33 +10,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 /**
  * JavaFX App
  */
 public class App extends Application {
 
-    //private static Scene scene;
-      private static Stage primaryStage;
-    private static Scene primaryScene;
+    private static Scene scene;
+    private ObservableList<Contatto> sharedContacts = FXCollections.observableArrayList();
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        primaryStage = stage;
+   @FXML
+    private void startApplication() throws IOException {
+    // Passa 'sharedContacts' ai controller
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+    Parent root = loader.load();
+    PrimaryController primaryController = loader.getController();
+    primaryController.setContatti(sharedContacts);
+}
 
-        // Carica la prima scena
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
-        Parent root = loader.load();
-        primaryScene = new Scene(root);
-
-        primaryStage.setScene(primaryScene);
-        primaryStage.show();
-    }
-
-    // Metodo per accedere alla scena principale
-    public static void showPrimaryScene() {
-        primaryStage.setScene(primaryScene);
-    }
-    /*
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 640, 480);
@@ -52,7 +45,7 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-*/
+
     public static void main(String[] args) {
 
         /*
