@@ -56,7 +56,8 @@
                       <AnchorPane>
                            <children>
                               <TextField fx:id="txtCercaContatto" layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
-                              <Button fx:id="btnCerca" layoutX="249.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
+                              <Button fx:id="btnCerca" layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
+                              <Button fx:id="btnApriInfo" layoutX="286.0" layoutY="5.0" mnemonicParsing="false" onAction="#apriDettagliContatto" text="Apri Contatto" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">

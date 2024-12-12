@@ -34,6 +34,8 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws NumeroTelefonoNonValidoException, DuplicatiException, NomeECognomeMancanteException {
+        /*
+        TEST ORDINAMENTO
         // Creazione della rubrica
         Rubrica rubrica = new Rubrica();
 
@@ -70,7 +72,8 @@ public class App extends Application {
         for (Contatto contatto : rubrica.getElenco()) {
             System.out.println(contatto);
         }
-        /*try {
+        ---------------------------------------------------
+        try {
           // Creazione della rubrica
             Rubrica rubrica = new Rubrica();
 

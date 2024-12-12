@@ -8,10 +8,22 @@ public class NumTelefono {
     
     HashSet <String> numeri; 
               
-    //COSTRUTTORE
+    /**
+     * @brief Costruttore della classe NumTelefono
+     * @post Inizializza l'insieme dei numeri come vuoto
+     */
     public NumTelefono(){
         this.numeri = new HashSet<>();
     }
+
+    /**
+     * @brief Metodo getter
+     * @return 
+     */
+    public HashSet<String> getNumeri() {
+        return numeri;
+    }
+    
     
       /**
      * @brief Aggiunge un numero di telefono all'insieme, controllando la validità del formato

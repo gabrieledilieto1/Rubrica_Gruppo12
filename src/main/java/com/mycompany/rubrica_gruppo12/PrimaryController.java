@@ -27,7 +27,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -83,6 +86,8 @@ public class PrimaryController implements Initializable {
     private MenuItem mnEsporta;
     @FXML
     private Menu mnFile;
+    @FXML
+    private Button btnApriInfo;
     
     private Label fldNome;
     private Label fldNumTelefono;
@@ -92,6 +97,7 @@ public class PrimaryController implements Initializable {
     private ObservableList<Contatto> filteredContacts = FXCollections.observableArrayList(); // Lista filtrata
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -226,6 +232,45 @@ private void cercaContatto(javafx.event.ActionEvent event) {
        
         
     }
-     
+
+    @FXML
+    private void apriDettagliContatto(javafx.event.ActionEvent event) {
+        // Ottieni il contatto selezionato
+    Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
+
+    if (contattoSelezionato == null) {
+        System.out.println("Nessun contatto selezionato!");
+        return; // Se non c'è contatto selezionato, interrompi
+    }
+
+    try {
+        // Carica la seconda scena
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+        Parent root = loader.load();
+
+        // Ottieni il controller della seconda scena
+        SecondaryController secondaryController = loader.getController();
+
+        // Passa il contatto selezionato al controller secondario
+        secondaryController.setDettagliContatto(contattoSelezionato);
+
+        // Mostra la seconda scena
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+        // Chiudi la scena attuale, se necessario
+        ((Stage) btnApriInfo.getScene().getWindow()).close();
+
+    } catch (IOException e) {
+        System.err.println("Errore nel caricamento della seconda scena: " + e.getMessage());
+    }
+    }
+
+    
+    public void setContatti(ObservableList<Contatto> contatti) {
+        this.contacts = contatti;
+        tblContatti.setItems(contacts); // Aggiorna la TableView
+    }
     
 }

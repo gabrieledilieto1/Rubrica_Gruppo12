@@ -7,12 +7,21 @@ public class Email {
     HashSet<String> mail;
 
     /**
-     * @brief Costruttore della vlasse Email.
+     * @brief Costruttore della classe Email.
      * @post Inizializza l'insieme delle email come vuoto
      */
     public Email() {
         this.mail = new HashSet<>();
     }
+
+    /**
+     * @brief Metodo getter
+     * @return 
+     */
+    public HashSet<String> getMail() {
+        return mail;
+    }
+    
 
     /**
      * @brief Agginge un'email all'insieme, evitando duplicati

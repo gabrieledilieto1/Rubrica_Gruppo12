@@ -16,7 +16,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="btnGoBack" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" text="←" />
+                  <Button fx:id="btnGoBack" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#goBack" text="←" />
                   <Label layoutX="49.0" layoutY="11.0" text="Torna Indietro" />
                </children>
             </AnchorPane>
