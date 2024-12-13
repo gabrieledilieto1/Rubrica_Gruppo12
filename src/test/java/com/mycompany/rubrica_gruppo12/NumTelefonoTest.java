@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class NumTelefonoTest {
     
+    NumTelefono instance;
+    
     public NumTelefonoTest() {
     }
     
@@ -31,23 +33,38 @@ public class NumTelefonoTest {
     
     @BeforeEach
     public void setUp() {
+    instance = new NumTelefono();
     }
     
     @AfterEach
     public void tearDown() {
     }
 
+    
+    /**
+     * Test of returnNum method, of class Email.
+     */
+    @Test
+    public void testReturnNum() throws Exception {
+        System.out.println("returnNum");
+        String c = "7200000000";
+        instance.aggiungiNumTelefono(c);
+        String exp = instance.returnNum(c);
+        assertEquals(c, exp);
+    }
+    
+    
+    
+    
     /**
      * Test of aggiungiNumTelefono method, of class NumTelefono.
      */
     @Test
     public void testAggiungiNumTelefono() throws Exception {
         System.out.println("aggiungiNumTelefono");
-        String c = "";
-        NumTelefono instance = new NumTelefono();
+        String c = "7200000000";
         instance.aggiungiNumTelefono(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(c, instance.returnNum(c));
     }
 
     /**
@@ -56,12 +73,14 @@ public class NumTelefonoTest {
     @Test
     public void testModificaNumTelefono() throws Exception {
         System.out.println("modificaNumTelefono");
-        String og = "";
-        String mod = "";
-        NumTelefono instance = new NumTelefono();
+        String og = "8200000000";
+        instance.aggiungiNumTelefono(og);
+        String mod = "8200000001";
         instance.modificaNumTelefono(og, mod);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (instance.returnNum(og) != null){
+            fail("errore modifica Mail");
+        }    
+        assertEquals(mod, instance.returnNum(mod));
     }
 
     /**

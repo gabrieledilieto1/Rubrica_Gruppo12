@@ -25,6 +25,23 @@ public class NumTelefono {
     }
     
     
+    
+    
+    
+    
+    
+    
+    public String returnNum(String c) {
+    if (c != null){ 
+    if (numeri.contains(c)){
+        return c;
+        }
+    }
+    return null;
+    }
+    
+    
+    
       /**
      * @brief Aggiunge un numero di telefono all'insieme, controllando la validità del formato
      * e l'assenza di duplicati.

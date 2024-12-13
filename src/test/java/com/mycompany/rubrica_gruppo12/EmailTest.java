@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
 
 /**
  *
@@ -18,11 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class EmailTest {
     
+    Email instance;
+    
     public EmailTest() {
     }
     
     @BeforeAll
-    public static void setUpClass() {
+    public static void setUpClass() {   
     }
     
     @AfterAll
@@ -31,6 +34,7 @@ public class EmailTest {
     
     @BeforeEach
     public void setUp() {
+    Email instance = new Email(); 
     }
     
     @AfterEach
@@ -38,16 +42,29 @@ public class EmailTest {
     }
 
     /**
+     * Test of returnMail method, of class Email.
+     */
+    @Test
+    public void testReturnMail() {
+        System.out.println("returnMail");
+        String c = "Tizio@mail.com";
+        instance.aggiungiEmail(c);
+        String exp = instance.returnMail(c);
+        assertEquals(c, exp);
+    }
+    
+    
+    
+    
+    /**
      * Test of aggiungiEmail method, of class Email.
      */
     @Test
     public void testAggiungiEmail() {
         System.out.println("aggiungiEmail");
-        String c = "";
-        Email instance = new Email();
+        String c = "Tizio@mail.com";
         instance.aggiungiEmail(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(c, instance.returnMail(c));
     }
 
     /**
@@ -56,12 +73,14 @@ public class EmailTest {
     @Test
     public void testModificaEmail() throws Exception {
         System.out.println("modificaEmail");
-        String og = "";
-        String mod = "";
-        Email instance = new Email();
+        String og = "Tizio2@mail.com";
+        instance.aggiungiEmail(og);
+        String mod = "Tizio@mail.com";
         instance.modificaEmail(og, mod);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        if (instance.returnMail(og) != null){
+            fail("errore modifica Mail");
+        }    
+        assertEquals(mod, instance.returnMail(mod));
     }
 
     /**
@@ -70,12 +89,9 @@ public class EmailTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Email instance = new Email();
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

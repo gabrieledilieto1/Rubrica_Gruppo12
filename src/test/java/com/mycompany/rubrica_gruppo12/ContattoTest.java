@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ContattoTest {
     
+    Contatto instance;
+    
     public ContattoTest() {
     }
     
@@ -30,7 +32,7 @@ public class ContattoTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() {  
     }
     
     @AfterEach
@@ -43,11 +45,10 @@ public class ContattoTest {
     @Test
     public void testSetNome() throws Exception {
         System.out.println("setNome");
-        String nome = "";
-        Contatto instance = null;
+        String nome = "Luca";
+        instance = new Contatto(null,"De Iuliis",null,null);
         instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(nome, instance.getNome());
     }
 
     /**
@@ -56,82 +57,77 @@ public class ContattoTest {
     @Test
     public void testSetCognome() throws Exception {
         System.out.println("setCognome");
-        String cognome = "";
-        Contatto instance = null;
+        String cognome = "De Iuliis";
+        instance = new Contatto("Luca",null,null,null);
         instance.setCognome(cognome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(cognome, instance.getCognome());
     }
 
     /**
      * Test of getNome method, of class Contatto.
      */
     @Test
-    public void testGetNome() {
+    public void testGetNome() throws Exception {
         System.out.println("getNome");
-        Contatto instance = null;
-        String expResult = "";
+        instance = new Contatto("Luca",null,null,null);
+        String expResult = "Luca";
         String result = instance.getNome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getCognome method, of class Contatto.
      */
     @Test
-    public void testGetCognome() {
+    public void testGetCognome() throws Exception {
         System.out.println("getCognome");
-        Contatto instance = null;
-        String expResult = "";
+        instance = new Contatto(null,"De Iuliis",null,null);
+        String expResult = "De Iuliis";
         String result = instance.getCognome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getMail method, of class Contatto.
      */
     @Test
-    public void testGetMail() {
+    public void testGetMail() throws Exception {
         System.out.println("getMail");
-        Contatto instance = null;
-        Email expResult = null;
+        Email mail = new Email();
+        mail.aggiungiEmail("tizio@mail.com");
+        instance = new Contatto(null,"De Iuliis",mail,null);
+        Email expResult = new Email ();
+        mail.aggiungiEmail("tizio@mail.com");
         Email result = instance.getMail();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getNumeri method, of class Contatto.
      */
     @Test
-    public void testGetNumeri() {
+    public void testGetNumeri() throws Exception{
         System.out.println("getNumeri");
-        Contatto instance = null;
-        NumTelefono expResult = null;
+        NumTelefono num = new NumTelefono();
+        num.aggiungiNumTelefono("720000000");
+        instance = new Contatto(null,"De Iuliis",null,num);
+        NumTelefono expResult = new NumTelefono();
+        expResult.aggiungiNumTelefono("720000000");
         NumTelefono result = instance.getNumeri();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of compareTo method, of class Contatto.
      */
     @Test
-    public void testCompareTo() {
+    public void testCompareTo() throws Exception{
         System.out.println("compareTo");
-        Contatto o = null;
-        Contatto instance = null;
-        int expResult = 0;
+        Contatto o = new Contatto(null,"Verdi",null,null);
+        instance = new Contatto(null,"De Iuliis",null,null);
+        int expResult = 1;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -144,8 +140,6 @@ public class ContattoTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

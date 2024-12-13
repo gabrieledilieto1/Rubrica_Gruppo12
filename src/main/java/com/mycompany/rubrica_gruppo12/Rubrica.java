@@ -49,6 +49,17 @@ public class Rubrica{
         return filtro;
     }
     
+        
+    public Contatto getContatto(Contatto c){
+        if (elenco.contains(c)){
+            return c;
+         }   
+        return null;
+        }
+    
+    
+    
+    
     /**
      * @brief Aggiunge un contatto alla rubrica.
      * 
@@ -71,12 +82,13 @@ public class Rubrica{
     /**
      * Filtra i contatti nella rubrica in base a un criterio di ricerca (nome o cognome).
      * 
+     * @param filtro
      * @pre Il parametro cerca non deve essere null.
      * @post L'insieme filtro contiene solo i contatti che corrispondono al criterio di ricerca.
      *
      * @param cerca Il criterio di ricerca (nome o cognome).
      */
-       public void Ricerca(String cerca){
+       public void Ricerca(String cerca, HashSet filtro){
     if (!filtro.isEmpty()){    
      filtro.clear();
     }     

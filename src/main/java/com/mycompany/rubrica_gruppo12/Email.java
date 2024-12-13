@@ -23,6 +23,16 @@ public class Email {
     }
     
 
+    public String returnMail(String c) {
+    if (c != null){ 
+    if (mail.contains(c)){
+        return c;
+        }
+    }
+    return null;
+    }
+    
+    
     /**
      * @brief Agginge un'email all'insieme, evitando duplicati
      * @param c la stringa che rappresenta l'email da aggiungere

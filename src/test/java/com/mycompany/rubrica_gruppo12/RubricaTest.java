@@ -19,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author LELE
  */
 public class RubricaTest {
+    Rubrica instance; 
+    HashSet<Contatto> filtro;     
     
     public RubricaTest() {
     }
@@ -32,7 +34,8 @@ public class RubricaTest {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp()  throws Exception {
+    instance = new Rubrica();
     }
     
     @AfterEach
@@ -43,67 +46,70 @@ public class RubricaTest {
      * Test of getElenco method, of class Rubrica.
      */
     @Test
-    public void testGetElenco() {
+    public void testGetElenco() throws Exception{
         System.out.println("getElenco");
-        Rubrica instance = new Rubrica();
-        TreeSet<Contatto> expResult = null;
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
+        instance.aggiungiContatto(c1);
         TreeSet<Contatto> result = instance.getElenco();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance, result);
     }
 
     /**
      * Test of getFiltro method, of class Rubrica.
      */
     @Test
-    public void testGetFiltro() {
+    public void testGetFiltro() throws Exception {
         System.out.println("getFiltro");
-        Rubrica instance = new Rubrica();
-        HashSet<Contatto> expResult = null;
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
+        instance.aggiungiContatto(c1);
+        HashSet<Contatto> expResult = new HashSet<>();
+        expResult.add(c1);
         HashSet<Contatto> result = instance.getFiltro();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of aggiungiContatto method, of class Rubrica.
      */
     @Test
-    public void testAggiungiContatto() {
+    public void testAggiungiContatto() throws Exception {
         System.out.println("aggiungiContatto");
-        Contatto c = null;
-        Rubrica instance = new Rubrica();
-        instance.aggiungiContatto(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
+        instance.aggiungiContatto(c1);
+        if (instance.getContatto(c1) == null){
+        fail("errore aggiungi contatto");
+        }
     }
 
     /**
      * Test of rimuoviContatto method, of class Rubrica.
      */
     @Test
-    public void testRimuoviContatto() {
+    public void testRimuoviContatto() throws Exception{
         System.out.println("rimuoviContatto");
-        Contatto c = null;
-        Rubrica instance = new Rubrica();
-        instance.rimuoviContatto(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
+        instance.aggiungiContatto(c1);
+        instance.rimuoviContatto(c1);
+        if (instance.getContatto(c1) != null){
+        fail("errore aggiungi contatto");
+        }
     }
 
     /**
      * Test of Ricerca method, of class Rubrica.
      */
     @Test
-    public void testRicerca() {
-        System.out.println("Ricerca");
-        String cerca = "";
-        Rubrica instance = new Rubrica();
-        instance.Ricerca(cerca);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testRicerca() throws Exception{
+        System.out.println("Ricerca");   
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null);         
+        Contatto c2 = new Contatto("Gabriele","Di Lieto",null,null);         
+        instance.aggiungiContatto(c1);        
+        instance.aggiungiContatto(c2);        
+        String cerca = "Luca";
+        instance.Ricerca(cerca,filtro);
+        HashSet<Contatto> result = new HashSet();
+        result.add(c1);
+        assertEquals(result, filtro);
     }
 
     /**
@@ -113,10 +119,7 @@ public class RubricaTest {
     public void testEsporta() throws Exception {
         System.out.println("esporta");
         String filePath = "";
-        Rubrica instance = new Rubrica();
         instance.esporta(filePath);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -126,10 +129,7 @@ public class RubricaTest {
     public void testImporta() throws Exception {
         System.out.println("importa");
         String filePath = "";
-        Rubrica instance = new Rubrica();
         instance.importa(filePath);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -138,12 +138,9 @@ public class RubricaTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Rubrica instance = new Rubrica();
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
