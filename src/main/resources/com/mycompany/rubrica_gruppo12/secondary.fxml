@@ -27,8 +27,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnElimina" layoutX="200.0" layoutY="285.0" mnemonicParsing="false" text="Elimina" />
-                  <Button fx:id="btnModifica" layoutX="63.0" layoutY="285.0" mnemonicParsing="false" text="Modifica" />
+                  <Button fx:id="btnModifica" layoutX="126.0" layoutY="285.0" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
                   <Label fx:id="lblEmail3" layoutX="214.0" layoutY="219.0" text="Email" />
                   <Label fx:id="lblEmail2" layoutX="214.0" layoutY="161.0" text="Email" />
                   <Label fx:id="lblEmail1" layoutX="214.0" layoutY="107.0" text="Email" />

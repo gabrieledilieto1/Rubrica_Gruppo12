@@ -12,6 +12,7 @@ import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -35,8 +36,6 @@ public class SecondaryController implements Initializable {
     private Label lblEmail3;
     @FXML
     private Button btnModifica;
-    @FXML
-    private Button btnElimina;
     @FXML
     private Label lblNumTelefono3;
     @FXML
@@ -91,6 +90,17 @@ public class SecondaryController implements Initializable {
     }
     }
     
+    @FXML
+private void goBack(ActionEvent event) throws IOException{
+     Parent secondViewParent = FXMLLoader.load(getClass().getResource("primary.fxml"));
+        Scene secondViewScene = new Scene(secondViewParent);
+        //Prende  le informazioni dallo Stage
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(secondViewScene);
+        window.show();
+}
+    
+    /*
   @FXML
 private void goBack(ActionEvent event) {
     try {
@@ -116,6 +126,10 @@ private void goBack(ActionEvent event) {
         System.err.println("Errore nel caricamento della scena principale: " + e.getMessage());
     }
 }
+*/
+    @FXML
+    private void modificaContatto(ActionEvent event) {
+    }
 
 
     

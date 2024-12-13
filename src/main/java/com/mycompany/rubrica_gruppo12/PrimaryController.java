@@ -22,6 +22,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -227,6 +228,25 @@ public class PrimaryController implements Initializable {
         
     }
 
+     @FXML
+    private void apriDettagliContatto(javafx.event.ActionEvent event) throws IOException{
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+         Parent secondViewParent = loader.load();
+        Scene secondViewScene = new Scene(secondViewParent);
+        //Prende  le informazioni dallo Stage
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(secondViewScene);
+        window.show();
+        
+         // Ottieni il controller della seconda scena
+        SecondaryController secondaryController = loader.getController();
+         // Ottieni il contatto selezionato
+        Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
+         // Passa il contatto selezionato al controller secondario
+        secondaryController.setDettagliContatto(contattoSelezionato);
+    }
+    
+    /*
     @FXML
     private void apriDettagliContatto(javafx.event.ActionEvent event) {
         // Ottieni il contatto selezionato
@@ -260,6 +280,7 @@ public class PrimaryController implements Initializable {
         System.err.println("Errore nel caricamento della seconda scena: " + e.getMessage());
     }
     }
+*/
 
     
     public void setContatti(ObservableList<Contatto> contatti) {
