@@ -33,7 +33,6 @@ public class NumTelefonoTest {
     
     @BeforeEach
     public void setUp() {
-    instance = new NumTelefono();
     }
     
     @AfterEach
@@ -47,6 +46,7 @@ public class NumTelefonoTest {
     @Test
     public void testReturnNum() throws Exception {
         System.out.println("returnNum");
+        instance = new NumTelefono();
         String c = "7200000000";
         instance.aggiungiNumTelefono(c);
         String exp = instance.returnNum(c);
@@ -62,6 +62,7 @@ public class NumTelefonoTest {
     @Test
     public void testAggiungiNumTelefono() throws Exception {
         System.out.println("aggiungiNumTelefono");
+        instance = new NumTelefono();
         String c = "7200000000";
         instance.aggiungiNumTelefono(c);
         assertEquals(c, instance.returnNum(c));
@@ -73,6 +74,7 @@ public class NumTelefonoTest {
     @Test
     public void testModificaNumTelefono() throws Exception {
         System.out.println("modificaNumTelefono");
+        instance = new NumTelefono();
         String og = "8200000000";
         instance.aggiungiNumTelefono(og);
         String mod = "8200000001";

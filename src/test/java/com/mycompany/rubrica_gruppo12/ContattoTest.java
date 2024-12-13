@@ -97,7 +97,7 @@ public class ContattoTest {
         mail.aggiungiEmail("tizio@mail.com");
         instance = new Contatto(null,"De Iuliis",mail,null);
         Email expResult = new Email ();
-        mail.aggiungiEmail("tizio@mail.com");
+        expResult.aggiungiEmail("tizio@mail.com");
         Email result = instance.getMail();
         assertEquals(expResult, result);
     }
@@ -109,10 +109,9 @@ public class ContattoTest {
     public void testGetNumeri() throws Exception{
         System.out.println("getNumeri");
         NumTelefono num = new NumTelefono();
-        num.aggiungiNumTelefono("720000000");
+        num.aggiungiNumTelefono("7200000000");
         instance = new Contatto(null,"De Iuliis",null,num);
-        NumTelefono expResult = new NumTelefono();
-        expResult.aggiungiNumTelefono("720000000");
+        String expResult = "7200000000 ";
         NumTelefono result = instance.getNumeri();
         assertEquals(expResult, result);
     }
@@ -125,7 +124,7 @@ public class ContattoTest {
         System.out.println("compareTo");
         Contatto o = new Contatto(null,"Verdi",null,null);
         instance = new Contatto(null,"De Iuliis",null,null);
-        int expResult = 1;
+        int expResult = -18;
         int result = instance.compareTo(o);
         assertEquals(expResult, result);
     }

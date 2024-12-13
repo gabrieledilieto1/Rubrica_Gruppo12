@@ -47,6 +47,7 @@ public class EmailTest {
     @Test
     public void testReturnMail() {
         System.out.println("returnMail");
+        instance = new Email();
         String c = "Tizio@mail.com";
         instance.aggiungiEmail(c);
         String exp = instance.returnMail(c);
@@ -62,6 +63,7 @@ public class EmailTest {
     @Test
     public void testAggiungiEmail() {
         System.out.println("aggiungiEmail");
+        instance = new Email();
         String c = "Tizio@mail.com";
         instance.aggiungiEmail(c);
         assertEquals(c, instance.returnMail(c));
@@ -72,6 +74,7 @@ public class EmailTest {
      */
     @Test
     public void testModificaEmail() throws Exception {
+        instance = new Email();
         System.out.println("modificaEmail");
         String og = "Tizio2@mail.com";
         instance.aggiungiEmail(og);
