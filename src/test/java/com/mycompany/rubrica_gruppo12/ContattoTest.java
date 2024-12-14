@@ -100,7 +100,7 @@ public class ContattoTest {
         Email expResult = new Email ();
         expResult.aggiungiEmail("tizio@mail.com");
         Email result = instance.getMail();        
-        assertEquals(expResult, result);        
+        assertEquals(expResult.returnMail("tizio@mail.com"), result.returnMail("tizio@mail.com"));        
     }
 
     /**
@@ -111,9 +111,9 @@ public class ContattoTest {
         System.out.println("getNumeri");
         NumTelefono num = new NumTelefono();
         num.aggiungiNumTelefono("7200000000");
-        instance = new Contatto(null,"De Iuliis",null,num);
-        String expResult = "7200000000 ";
+        instance = new Contatto(null,"De Iuliis",null,num);     
         NumTelefono result = instance.getNumeri();
+        assertEquals(result.returnNum("7200000000"),num.returnNum("7200000000"));
     }
 
 

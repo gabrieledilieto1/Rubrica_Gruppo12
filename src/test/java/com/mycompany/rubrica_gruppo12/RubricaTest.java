@@ -50,7 +50,10 @@ public class RubricaTest {
         Contatto c2 = new Contatto("Luca","De Iuliis",null,null); 
         instance.aggiungiContatto(c2);
         TreeSet<Contatto> result = instance.getElenco();
-        assertEquals(c2, result);
+        instance.toString();
+        if (!result.contains(c2)){
+            fail("errore GetElenco");
+            }
     }
 
     /**
@@ -122,9 +125,11 @@ public class RubricaTest {
      * Test of toString method, of class Rubrica.
      */
     @Test
-    public void testToString() {
+    public void testToString() throws Exception{
         System.out.println("toString");
-        String expResult = "";
+        String expResult = "Contatto: [nome=Luca, cognome=De Iuliis, mail=null, numeri=null]\n";
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null);                 
+        instance.aggiungiContatto(c1);           
         String result = instance.toString();
         assertEquals(expResult, result);
     }

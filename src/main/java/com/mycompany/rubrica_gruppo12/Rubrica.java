@@ -190,7 +190,7 @@ public class Rubrica{
     public String toString() {
         StringBuffer sb = new StringBuffer();
             for (Contatto c : elenco){
-                sb.append(c);
+                sb.append(c.toString());
                 sb.append("\n");
             }
         return sb.toString();
