@@ -103,23 +103,35 @@ public class RubricaTest {
 
     /**
      * Test of esporta method, of class Rubrica.
+     * Testa sia esporta che importa
      */
     @Test
     public void testEsporta() throws Exception {
         System.out.println("esporta");
-        String filePath = "";
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null);
+        instance.aggiungiContatto(c1);         
+        String filePath = "C:\\Program Files";
         instance.esporta(filePath);
+        instance.importa(filePath);        
+        if (instance.getContatto(c1) == null){
+            fail ("Errore Esporta/Importa");
+            }
     }
 
+    
+    
     /**
      * Test of importa method, of class Rubrica.
      */
-    @Test
+    /*@Test
     public void testImporta() throws Exception {
         System.out.println("importa");
-        String filePath = "";
-        instance.importa(filePath);
-    }
+        Contatto c1 = new Contatto("Luca","De Iuliis",null,null);
+        instance.aggiungiContatto(c1);         
+        String filePath = "C:\\Users\\lucad_es3t3f8\\Desktop\\Rubrica_Gruppo12";
+        instance.esporta(filePath);
+        instance.importa(filePath);        
+    }*/
 
     /**
      * Test of toString method, of class Rubrica.

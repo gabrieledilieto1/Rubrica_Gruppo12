@@ -193,7 +193,9 @@ public class Rubrica{
                 sb.append(c.toString());
                 sb.append("\n");
             }
-        return sb.toString();
+        String output = sb.toString();
+        System.out.println(output);
+        return output;
     }        
     
 }
