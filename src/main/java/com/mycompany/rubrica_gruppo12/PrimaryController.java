@@ -15,6 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -105,12 +106,48 @@ public class PrimaryController implements Initializable {
 
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
-       
+       /*
         //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
         btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> txtNome.getText().isEmpty() && txtCognome.getText().isEmpty(), txtNome.textProperty(), txtCognome.textProperty() ));
-        
-    }    
+        */
+       controllaInput();
+    }   
     
+    
+    private void controllaInput() {
+    // DISABILITAZIONE DEL BOTTONE QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
+    BooleanBinding nomeCognomeMancanti = Bindings.createBooleanBinding(
+        () -> txtNome.getText().isEmpty() && txtCognome.getText().isEmpty(),
+        txtNome.textProperty(),
+        txtCognome.textProperty()
+    );
+
+    // DISABILITAZIONE DEL BOTTONE QUANDO IL CAMPO EMAIL CONTIENE PIÙ DI DUE VIRGOLE
+    BooleanBinding troppeVirgoleEmail = Bindings.createBooleanBinding(
+        () -> contaVirgole(txtEmail.getText()) >= 3,
+        txtEmail.textProperty()
+    );
+
+    // DISABILITAZIONE DEL BOTTONE QUANDO IL CAMPO NUMERI DI TELEFONO CONTIENE PIÙ DI DUE VIRGOLE
+    BooleanBinding troppeVirgoleNumeri = Bindings.createBooleanBinding(
+        () -> contaVirgole(txtNumTelefono.getText()) >= 3,
+        txtNumTelefono.textProperty()
+    );
+
+    // COMBINAZIONE DEI BINDING
+    btnAggiungi.disableProperty().bind(
+        nomeCognomeMancanti.or(troppeVirgoleEmail).or(troppeVirgoleNumeri)
+    );
+}
+
+// Metodo per contare le virgole in una stringa
+private int contaVirgole(String text) {
+    if (text == null || text.isEmpty()) {
+        return 0;
+    }
+    return text.length() - text.replace(",", "").length();
+}
+
     @FXML
 private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
     Email email = new Email();
@@ -134,6 +171,7 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
 
     Contatto contatto = new Contatto(nome, cognome, email, numTelefono);
     contacts.add(contatto);
+    contacts.sort(new ContattoCompare());
     tblContatti.refresh(); // Aggiorna la tabella
 }
     /*
@@ -224,7 +262,23 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
           scan.useDelimiter("[;\n]");
           
           while(scan.hasNext()){
-            // Legge i dati base del contatto
+            // Legge i dati base del contatto  
+            String nome = scan.next();
+            String cognome = scan.next();
+            String emailString = scan.next();
+            String numeroString = scan.next();
+            // Crea l'oggetto Email e aggiunge l'indirizzo letto
+            Email email = new Email();
+            for (String mail : emailString.split(",")) {
+              email.aggiungiEmail(mail.trim());
+            }
+            // Crea l'oggetto NumTelefono e aggiunge il numero letto
+             NumTelefono numero = new NumTelefono();
+             for (String numeroTelefono : numeroString.split(",")) {
+            numero.aggiungiNumTelefono(numeroTelefono.trim());
+            }
+              
+/*// Legge i dati base del contatto
             String nome = scan.next();
             String cognome = scan.next();
             String emailString = scan.next(); // Stringa rappresentante l'email
@@ -237,7 +291,7 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
             // Crea l'oggetto NumTelefono e aggiunge il numero letto
             NumTelefono numero = new NumTelefono();
             numero.aggiungiNumTelefono(numeroString); // Metodo per aggiungere il numero al set interno
-
+*/
             // Aggiunge il nuovo contatto alla lista
             contacts.add(new Contatto(nome, cognome, email, numero));}         
         } catch(IOException e){
@@ -257,7 +311,11 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         
         try( PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(f))) ) {
             for(Contatto con : contacts){
-                pw.println(con.getNome()+";"+con.getCognome()+";"+con.getMail()+";"+con.getNumeri());
+                  String emailString = String.join(",", con.getMail().getMail());
+                  String numeroString = String.join(",", con.getNumeri().getNumeri());
+                  pw.println(con.getNome() + ";" + con.getCognome() + ";" + emailString + ";" + numeroString);
+
+                //pw.println(con.getNome()+";"+con.getCognome()+";"+con.getMail()+";"+con.getNumeri());
             }
         } catch (IOException e){
             System.out.println("Errore! Impossibile salvare il file!"+ e.getMessage());
