@@ -28,7 +28,7 @@
                               <Label fx:id="lblNumTelefono" layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
                               <TextField fx:id="txtCognome" layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
                               <Label fx:id="lblCognome" graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
-                              <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
+                              <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 383, +39 2354, 234543" />
                               <Label fx:id="lblEmail" layoutX="9.0" layoutY="247.0" text="EMAIL" />
                               <TextField fx:id="txtEmail" layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
                               <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" onAction="#aggiungiContatto" text="Aggiungi" />

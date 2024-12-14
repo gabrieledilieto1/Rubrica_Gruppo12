@@ -112,6 +112,32 @@ public class PrimaryController implements Initializable {
     }    
     
     @FXML
+private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
+    Email email = new Email();
+    if (!txtEmail.getText().isEmpty()) {
+        String[] emailArray = txtEmail.getText().split(","); // Email separate da virgola
+        for (String mail : emailArray) {
+            email.aggiungiEmail(mail.trim());
+        }
+    }
+
+    NumTelefono numTelefono = new NumTelefono();
+    if (!txtNumTelefono.getText().isEmpty()) {
+        String[] numeriArray = txtNumTelefono.getText().split(","); // Numeri separati da virgola
+        for (String numero : numeriArray) {
+            numTelefono.aggiungiNumTelefono(numero.trim());
+        }
+    }
+
+    String nome = txtNome.getText().isEmpty() ? "<vuoto>" : txtNome.getText();
+    String cognome = txtCognome.getText().isEmpty() ? "<vuoto>" : txtCognome.getText();
+
+    Contatto contatto = new Contatto(nome, cognome, email, numTelefono);
+    contacts.add(contatto);
+    tblContatti.refresh(); // Aggiorna la tabella
+}
+    /*
+    @FXML
     private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
         
         // Creazione di un oggetto Email
@@ -146,7 +172,7 @@ public class PrimaryController implements Initializable {
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
     }
-    
+    */
     @FXML
     private void cercaContatto(javafx.event.ActionEvent event) {
     String testoRicerca = txtCercaContatto.getText().toLowerCase();
@@ -258,7 +284,7 @@ public class PrimaryController implements Initializable {
          // Passa il contatto selezionato al controller secondario
         secondaryController.setDettagliContatto(contattoSelezionato);
     }
-    
+ 
     /*
     @FXML
     private void apriDettagliContatto(javafx.event.ActionEvent event) {

@@ -28,6 +28,7 @@ import javafx.stage.Stage;
  */
 public class SecondaryController implements Initializable {
 
+
     @FXML
     private Label lblEmail1;
     @FXML
@@ -59,7 +60,24 @@ public class SecondaryController implements Initializable {
 
     }
     }    
+    
+    public void setDettagliContatto(Contatto contattoSelezionato) {
+    lblNome.setText(contattoSelezionato.getNome());
+    lblCognome.setText(contattoSelezionato.getCognome());
 
+    // Email
+    String[] emails = contattoSelezionato.getMail().getMail().toArray(new String[0]);
+    lblEmail1.setText(emails.length > 0 ? emails[0] : "");
+    lblEmail2.setText(emails.length > 1 ? emails[1] : "");
+    lblEmail3.setText(emails.length > 2 ? emails[2] : "");
+
+    // Numeri di telefono
+    String[] numeri = contattoSelezionato.getNumeri().getNumeri().toArray(new String[0]);
+    lblNumTelefono1.setText(numeri.length > 0 ? numeri[0] : "");
+    lblNumTelefono2.setText(numeri.length > 1 ? numeri[1] : "");
+    lblNumTelefono3.setText(numeri.length > 2 ? numeri[2] : "");
+}
+/*
     void setDettagliContatto(Contatto contattoSelezionato) {
         // Imposta i dettagli del nome e cognome
         lblNome.setText(contattoSelezionato.getNome());
@@ -89,7 +107,7 @@ public class SecondaryController implements Initializable {
         phoneIndex++;
     }
     }
-    
+    */
     @FXML
 private void goBack(ActionEvent event) throws IOException{
      Parent secondViewParent = FXMLLoader.load(getClass().getResource("primary.fxml"));
@@ -127,6 +145,7 @@ private void goBack(ActionEvent event) {
     }
 }
 */
+
     @FXML
     private void modificaContatto(ActionEvent event) {
     }
