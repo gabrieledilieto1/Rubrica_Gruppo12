@@ -107,7 +107,7 @@ public class PrimaryController implements Initializable {
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
        
         //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
-        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> txtNome.getText().isEmpty() || txtCognome.getText().isEmpty(), txtNome.textProperty(), txtCognome.textProperty() ));
+        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> txtNome.getText().isEmpty() && txtCognome.getText().isEmpty(), txtNome.textProperty(), txtCognome.textProperty() ));
         
     }    
     
@@ -124,12 +124,25 @@ public class PrimaryController implements Initializable {
         if (!txtNumTelefono.getText().isEmpty()) {
             numTelefono.aggiungiNumTelefono(txtNumTelefono.getText());
         }
-        String nome = txtNome.getText();
-        String cognome = txtCognome.getText();
+        String nome;
+        String cognome;
+        if (txtNome.getText().isEmpty()){
+            nome = "<vuoto>";
+        }            
+        else{
+            nome = txtNome.getText();   
+            }
+        if (txtCognome.getText().isEmpty()){
+            cognome = "<vuoto>";
+        }            
+        else{
+            cognome = txtCognome.getText();   
+        }  
+        System.out.println(nome);
         //Crea il contatto
         Contatto contatto= new Contatto(nome, cognome, email, numTelefono);
         //Aggiungo il contatto alla rubrica
-        contacts.add(new Contatto(txtNome.getText(), txtCognome.getText(), email, numTelefono ));
+        contacts.add(new Contatto(nome, cognome, email, numTelefono ));
         tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
         
     }
