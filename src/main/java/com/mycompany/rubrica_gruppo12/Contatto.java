@@ -31,6 +31,14 @@ public class Contatto{
         }
     }
 
+    public void setMail(Email mail) {
+        this.mail = mail;
+    }
+
+    public void setNumeri(NumTelefono numeri) {
+        this.numeri = numeri;
+    }
+
     
     /**
      * @brief Setter del Nome

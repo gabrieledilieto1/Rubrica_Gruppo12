@@ -174,7 +174,7 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
     contacts.sort(new ContattoCompare());
     tblContatti.refresh(); // Aggiorna la tabella
 }
-//commit
+
 
     /*
     @FXML
@@ -395,6 +395,19 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         tblContatti.setItems(filteredContacts); // Aggiorna la TableView
     } else {
         filteredContacts = new FilteredList<>(contacts, p -> true);
+        }
+    }
+    
+    // Metodo per aggiornare il contatto
+    public void updateContatto(Contatto contattoAggiornato) {
+        // Trova il contatto nella lista
+        for (int i = 0; i < contacts.size(); i++) {
+            Contatto contatto = contacts.get(i);
+            if (contatto.getCognome().equals(contattoAggiornato.getCognome())) { // Supponiamo che ogni contatto abbia un ID unico
+                // Sostituisci il contatto esistente con quello aggiornato
+                contacts.set(i, contattoAggiornato);
+                break;
+            }
         }
     }
    

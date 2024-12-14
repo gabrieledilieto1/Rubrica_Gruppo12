@@ -39,6 +39,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="txtNumTelefono1" layoutX="40.0" layoutY="124.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtNome" layoutX="26.0" layoutY="68.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtCognome" layoutX="148.0" layoutY="68.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtEmail1" layoutX="176.0" layoutY="124.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtNumTelefono2" layoutX="40.0" layoutY="178.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtEmail2" layoutX="176.0" layoutY="178.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtNumTelefono3" layoutX="40.0" layoutY="236.0" prefHeight="27.0" prefWidth="106.0" />
+                  <TextField fx:id="txtEmail3" layoutX="176.0" layoutY="236.0" prefHeight="27.0" prefWidth="106.0" />
                </children>
             </AnchorPane>
         </items>

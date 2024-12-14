@@ -14,6 +14,7 @@ public class Email {
         this.mail = new HashSet<>();
     }
 
+
     /**
      * @brief Metodo getter
      * @return 
