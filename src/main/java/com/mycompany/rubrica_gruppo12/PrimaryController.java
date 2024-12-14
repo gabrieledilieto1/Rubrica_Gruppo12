@@ -174,6 +174,8 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
     contacts.sort(new ContattoCompare());
     tblContatti.refresh(); // Aggiorna la tabella
 }
+//commit
+
     /*
     @FXML
     private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
