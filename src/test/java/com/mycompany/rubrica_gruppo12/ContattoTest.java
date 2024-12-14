@@ -116,18 +116,6 @@ public class ContattoTest {
         NumTelefono result = instance.getNumeri();
     }
 
-    /**
-     * Test of compareTo method, of class Contatto.
-     */
-    @Test
-    public void testCompareTo() throws Exception{
-        System.out.println("compareTo");
-        Contatto o = new Contatto(null,"Verdi",null,null);
-        instance = new Contatto(null,"De Iuliis",null,null);
-        int expResult = -18;
-        int result = instance.compareTo(o);
-        assertEquals(expResult, result);
-    }
 
     /**
      * Test of toString method, of class Contatto.

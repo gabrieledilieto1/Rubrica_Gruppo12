@@ -26,7 +26,7 @@ public class Rubrica{
      * @post Inizializza l'elenco dei contatti come vuoto.
      */
     public Rubrica(){
-        this.elenco = new TreeSet<>();
+        this.elenco = new TreeSet<>(new ContattoCompare());
     }
     
      /**
@@ -189,7 +189,6 @@ public class Rubrica{
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        System.out.println("L'elenco è formato da:");
             for (Contatto c : elenco){
                 sb.append(c);
                 sb.append("\n");

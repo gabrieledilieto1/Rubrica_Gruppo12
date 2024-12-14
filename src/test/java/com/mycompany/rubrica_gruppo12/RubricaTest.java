@@ -47,10 +47,10 @@ public class RubricaTest {
     @Test
     public void testGetElenco() throws Exception{
         System.out.println("getElenco");
-        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
-        instance.aggiungiContatto(c1);
+        Contatto c2 = new Contatto("Luca","De Iuliis",null,null); 
+        instance.aggiungiContatto(c2);
         TreeSet<Contatto> result = instance.getElenco();
-        assertEquals(c1, result);
+        assertEquals(c2, result);
     }
 
     /**

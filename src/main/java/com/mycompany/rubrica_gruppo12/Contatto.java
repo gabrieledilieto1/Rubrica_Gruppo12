@@ -2,7 +2,7 @@ package com.mycompany.rubrica_gruppo12;
 
 import com.mycompany.exception.NomeECognomeMancanteException;
 
-public class Contatto implements Comparable<Contatto> {
+public class Contatto{
     public String nome;
     public String cognome;
     private Email mail;
@@ -91,29 +91,6 @@ public class Contatto implements Comparable<Contatto> {
         return numeri;
     }
     
-    /**
-    * @brief Confronta questo contatto con un altro in base all'ordine alfabetico del cognome e, in caso di uguaglianza, del nome.
-    * 
-    *
-    * @pre Il contatto passato come parametro non deve essere nullo.
-    * @post Restituisce un valore intero che rappresenta l'ordine relativo 
-    *       tra i due contatti: negativo se questo contatto precede, zero
-    *       se sono uguali, positivo se segue.
-    *
-    * @param o Il contatto da confrontare con l'oggetto corrente.
-    * @return Un valore negativo, zero o positivo se questo contatto è rispettivamente  minore, uguale o maggiore rispetto al contatto passato.
-    *         
-    * @throws NullPointerException Se il contatto passato come parametro è nullo.
-    */
-    @Override
-    public int compareTo(Contatto o){
-         if (o == null) {
-            throw new NullPointerException("Il contatto da confrontare è nullo.");
-        }
-        if(!this.cognome.equals(o.cognome)){
-            return this.cognome.compareTo(o.cognome);
-        } else return this.nome.compareTo(o.nome);
-    }
     
     /**
     * @brief Restituisce una rappresentazione testuale del contatto, includendo nome, cognome, email e numeri di telefono.
