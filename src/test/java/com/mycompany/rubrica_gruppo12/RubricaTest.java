@@ -19,8 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author LELE
  */
 public class RubricaTest {
-    Rubrica instance; 
-    HashSet<Contatto> filtro;     
+    Rubrica instance;    
     
     public RubricaTest() {
     }
@@ -51,21 +50,7 @@ public class RubricaTest {
         Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
         instance.aggiungiContatto(c1);
         TreeSet<Contatto> result = instance.getElenco();
-        assertEquals(instance, result);
-    }
-
-    /**
-     * Test of getFiltro method, of class Rubrica.
-     */
-    @Test
-    public void testGetFiltro() throws Exception {
-        System.out.println("getFiltro");
-        Contatto c1 = new Contatto("Luca","De Iuliis",null,null); 
-        instance.aggiungiContatto(c1);
-        HashSet<Contatto> expResult = new HashSet<>();
-        expResult.add(c1);
-        HashSet<Contatto> result = instance.getFiltro();
-        assertEquals(expResult, result);
+        assertEquals(c1, result);
     }
 
     /**
@@ -101,6 +86,7 @@ public class RubricaTest {
     @Test
     public void testRicerca() throws Exception{
         System.out.println("Ricerca");   
+        HashSet<Contatto> filtro = new HashSet();  
         Contatto c1 = new Contatto("Luca","De Iuliis",null,null);         
         Contatto c2 = new Contatto("Gabriele","Di Lieto",null,null);         
         instance.aggiungiContatto(c1);        

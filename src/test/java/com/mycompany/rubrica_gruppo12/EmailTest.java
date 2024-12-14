@@ -92,7 +92,10 @@ public class EmailTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        String expResult = "";
+        instance = new Email();
+        String c = "Tizio@mail.com";
+        instance.aggiungiEmail(c);
+        String expResult = "Tizio@mail.com ";
         String result = instance.toString();
         assertEquals(expResult, result);
     }

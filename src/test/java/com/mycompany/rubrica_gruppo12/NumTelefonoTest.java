@@ -89,14 +89,14 @@ public class NumTelefonoTest {
      * Test of toString method, of class NumTelefono.
      */
     @Test
-    public void testToString() {
+    public void testToString() throws Exception {
         System.out.println("toString");
-        NumTelefono instance = new NumTelefono();
-        String expResult = "";
+        instance = new NumTelefono();
+        String c = "7200000000";
+        instance.aggiungiNumTelefono(c);
+        String expResult = "7200000000 ";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
