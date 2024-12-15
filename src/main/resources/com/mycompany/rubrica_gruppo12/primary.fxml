@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="481.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
+<AnchorPane prefHeight="481.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
    <children>
       <SplitPane dividerPositions="0.16020671834625322" prefHeight="481.0" prefWidth="713.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -50,7 +50,7 @@
             </AnchorPane>
           <AnchorPane prefHeight="479.0" prefWidth="739.0">
                <children>
-                  <SplitPane dividerPositions="0.1" layoutX="-7.0" orientation="VERTICAL" prefHeight="479.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.1" layoutX="-7.0" orientation="VERTICAL" prefHeight="479.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                            <children>
@@ -58,7 +58,7 @@
                               <Button fx:id="btnCerca" layoutX="243.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane>
+                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="975.0">
                            <children>
                               <SplitPane dividerPositions="0.5" prefHeight="425.0" prefWidth="978.0">
                                 <items>
@@ -72,7 +72,7 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="379.0">
+                                    <AnchorPane prefHeight="423.0" prefWidth="374.0">
                                        <children>
                                           <Label fx:id="lblNome1" layoutX="62.0" layoutY="45.0" text="Nome" underline="true">
                                              <font>
