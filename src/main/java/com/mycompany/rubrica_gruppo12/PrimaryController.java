@@ -114,6 +114,7 @@ public class PrimaryController implements Initializable {
     }   
     
     
+    
     private void controllaInput() {
     // DISABILITAZIONE DEL BOTTONE QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
     BooleanBinding nomeCognomeMancanti = Bindings.createBooleanBinding(
@@ -342,11 +343,13 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         window.show();*/
          // Ottieni il controller della seconda scena
         SecondaryController secondaryController = loader.getController();
+         secondaryController.setPrimaryController(this);
          // Ottieni il contatto selezionato
         Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
          // Passa il contatto selezionato al controller secondario
         secondaryController.setContatti(contacts);
         secondaryController.setDettagliContatto(contattoSelezionato);
+       
     }
  
     /*
@@ -413,6 +416,7 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
                 break;
             }
         }
+        tblContatti.refresh();
     }
    
 }

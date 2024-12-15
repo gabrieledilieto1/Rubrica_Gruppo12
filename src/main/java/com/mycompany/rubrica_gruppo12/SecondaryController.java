@@ -147,9 +147,12 @@ public class SecondaryController implements Initializable {
         // Aggiorna i dati del contatto con i valori dei campi di input
         contatto.setNome(txtNome.getText());
         contatto.setCognome(txtCognome.getText());
-
-        // Gestione delle email
         Email email = new Email();
+        NumTelefono numTelefono = new NumTelefono();
+        
+        
+        // Gestione delle email
+        
         if (!txtEmail1.getText().isEmpty()) {
             email.aggiungiEmail(txtEmail1.getText().trim());
         }
@@ -159,10 +162,10 @@ public class SecondaryController implements Initializable {
         if (!txtEmail3.getText().isEmpty()) {
             email.aggiungiEmail(txtEmail3.getText().trim());
         }
-        contatto.setMail(email);
+        
 
         // Gestione dei numeri di telefono
-        NumTelefono numTelefono = new NumTelefono();
+       
         if (!txtNumTelefono1.getText().isEmpty()) {
             numTelefono.aggiungiNumTelefono(txtNumTelefono1.getText().trim());
         }
@@ -172,16 +175,16 @@ public class SecondaryController implements Initializable {
         if (!txtNumTelefono3.getText().isEmpty()) {
             numTelefono.aggiungiNumTelefono(txtNumTelefono3.getText().trim());
         }
-        contatto.setNumeri(numTelefono);
+       
 
         // Aggiorna la lista nella scena principale
          /*Dà nullpointerexception, se riesci a farlo partire abbiamo risolto il problema*/
         primaryController.updateContatto(contatto);
         primaryController.setContatti(contacts);
-
+        
         // Chiudi la finestra secondaria
         Stage stage = (Stage) btnModifica.getScene().getWindow();
-        stage.close();
+       
     }
 
     @FXML
