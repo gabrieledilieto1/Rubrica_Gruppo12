@@ -163,46 +163,6 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
     contacts.sort(new ContattoCompare());
     tblContatti.refresh(); // Aggiorna la tabella
 }
-
-
-
-    /*
-    @FXML
-    private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
-        
-        // Creazione di un oggetto Email
-        Email email = new Email();
-        if (!txtEmail.getText().isEmpty()) {
-            email.aggiungiEmail(txtEmail.getText());
-        }
-        // Creazione di un oggetto NumTelefono
-        NumTelefono numTelefono = new NumTelefono();
-        if (!txtNumTelefono.getText().isEmpty()) {
-            numTelefono.aggiungiNumTelefono(txtNumTelefono.getText());
-        }
-        String nome;
-        String cognome;
-        if (txtNome.getText().isEmpty()){
-            nome = "<vuoto>";
-        }            
-        else{
-            nome = txtNome.getText();   
-            }
-        if (txtCognome.getText().isEmpty()){
-            cognome = "<vuoto>";
-        }            
-        else{
-            cognome = txtCognome.getText();   
-        }  
-        System.out.println(nome);
-        //Crea il contatto
-        Contatto contatto= new Contatto(nome, cognome, email, numTelefono);
-        //Aggiungo il contatto alla rubrica
-        contacts.add(new Contatto(nome, cognome, email, numTelefono ));
-        tblContatti.setItems(FXCollections.observableArrayList(rubrica.getElenco()));
-        
-    }
-    */
     @FXML
     private void cercaContatto(javafx.event.ActionEvent event) {
     String testoRicerca = txtCercaContatto.getText().toLowerCase();
@@ -270,20 +230,6 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
             numero.aggiungiNumTelefono(numeroTelefono.trim());
             }
               
-/*// Legge i dati base del contatto
-            String nome = scan.next();
-            String cognome = scan.next();
-            String emailString = scan.next(); // Stringa rappresentante l'email
-            String numeroString = scan.next(); // Stringa rappresentante il numero di telefono
-
-             // Crea l'oggetto Email e aggiunge l'indirizzo letto
-            Email email = new Email();
-            email.aggiungiEmail(emailString); // Metodo per aggiungere email al set interno
-
-            // Crea l'oggetto NumTelefono e aggiunge il numero letto
-            NumTelefono numero = new NumTelefono();
-            numero.aggiungiNumTelefono(numeroString); // Metodo per aggiungere il numero al set interno
-*/
             // Aggiunge il nuovo contatto alla lista
             contacts.add(new Contatto(nome, cognome, email, numero));}         
         } catch(IOException e){
@@ -370,43 +316,6 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
     txtNome1.setText(contatto.getNome());
     txtCognome1.setText(contatto.getCognome());
     }
- 
-    /*
-    @FXML
-    private void apriDettagliContatto(javafx.event.ActionEvent event) {
-        // Ottieni il contatto selezionato
-    Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
-
-    if (contattoSelezionato == null) {
-        System.out.println("Nessun contatto selezionato!");
-        return; // Se non c'è contatto selezionato, interrompi
-    }
-
-    try {
-        // Carica la seconda scena
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
-        Parent root = loader.load();
-
-        // Ottieni il controller della seconda scena
-        SecondaryController secondaryController = loader.getController();
-
-        // Passa il contatto selezionato al controller secondario
-        secondaryController.setDettagliContatto(contattoSelezionato);
-
-        // Mostra la seconda scena
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        // Chiudi la scena attuale, se necessario
-        ((Stage) btnApriInfo.getScene().getWindow()).close();
-
-    } catch (IOException e) {
-        System.err.println("Errore nel caricamento della seconda scena: " + e.getMessage());
-    }
-    }
-*/
-
     
     public void setContatti(ObservableList<Contatto> contatti) {
     if (contatti == null) {

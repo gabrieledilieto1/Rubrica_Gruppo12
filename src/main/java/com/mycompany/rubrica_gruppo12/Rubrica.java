@@ -49,11 +49,17 @@ public class Rubrica{
         return filtro;
     }
     
-     /**
-      * 
-      * @param c
-      * @return 
-      */   
+ /** @brief Restituisce il contatto specificato se presente nell'elenco.
+ *
+ * @pre Il parametro c può essere null. In tal caso, il metodo restituirà null.
+ *      elenco deve essere inizializzato.
+ * @post Se c è presente in elenco, il metodo restituisce l'oggetto c.
+ *       Se c non è presente o è null, il metodo restituisce null.
+ *
+ * @param c il contatto da cercare; può essere null
+ * @return il contatto c se presente in elenco; altrimenti, null
+ * @throws NullPointerException se elenco non è inizializzato
+ */  
     public Contatto getContatto(Contatto c){
         if (elenco.contains(c)){
             return c;
@@ -75,9 +81,15 @@ public class Rubrica{
     }   
     
     /**
-     * 
-     * @param c 
-     */
+ * @brief Rimuove un contatto dall'elenco se presente.
+ *
+ * @pre Il parametro c può essere null. In tal caso, il metodo non esegue alcuna operazione.
+ *      Se c non è null, elenco deve essere inizializzato.
+ * @post Se c è presente in elenco, verrà rimosso. 
+ *       Se c non è presente o è null, elenco rimane invariato.
+ *
+ * @param c il contatto da rimuovere; può essere null
+ */
     public void rimuoviContatto(Contatto c){
         if (elenco.contains(c)){
             elenco.remove(c);
