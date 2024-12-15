@@ -67,49 +67,10 @@ public class PrimaryController implements Initializable {
     private TableColumn<Contatto, String > clmCognome;
     @FXML
     private TableColumn<Contatto, String> clmNome;
-    @FXML
-    private Label lblNome;
-    @FXML
-    private Label lblNumTelefono;
-    @FXML
-    private Label lblCognome;
-    @FXML
-    private Label lblEmail;
-    @FXML
-    private Button btnElimina;
-    @FXML
-    private MenuItem mnImporta;
-    @FXML
-    private MenuItem mnEsporta;
-    @FXML
-    private Menu mnFile;
-    
-    private Label fldNome;
-    private Label fldNumTelefono;
-    private Label fldCognome;
-    private Label fldEmail;
     
     private FilteredList<Contatto> filteredContacts;
     private ObservableList<Contatto> contacts; 
-    private Rubrica rubrica; 
-    @FXML
-    private Label lblNome1;
-    @FXML
-    private Button btnModifica;
-    @FXML
-    private Label lblEmail3;
-    @FXML
-    private Label lblEmail2;
-    @FXML
-    private Label lblEmail1;
-    @FXML
-    private Label lblNumTelefono3;
-    @FXML
-    private Label lblNumTelefono2;
-    @FXML
-    private Label lblNumTelefono1;
-    @FXML
-    private Label lblCognome1;
+    
     @FXML
     private TextField txtNumTelefono1;
     @FXML
@@ -358,11 +319,10 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
                   String emailString = String.join(",", con.getMail().getMail());
                   String numeroString = String.join(",", con.getNumeri().getNumeri());
                   pw.println(con.getNome() + ";" + con.getCognome() + ";" + emailString + ";" + numeroString);
-
-                //pw.println(con.getNome()+";"+con.getCognome()+";"+con.getMail()+";"+con.getNumeri());
+                  System.out.println("File Esportato correttamente");
             }
         } catch (IOException e){
-            System.out.println("Errore! Impossibile salvare il file!"+ e.getMessage());
+            System.err.println("Errore! Impossibile salvare il file!"+ e.getMessage());
 
         }
        

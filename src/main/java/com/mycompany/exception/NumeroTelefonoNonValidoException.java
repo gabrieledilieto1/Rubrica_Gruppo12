@@ -11,7 +11,7 @@ package com.mycompany.exception;
  */
 public class NumeroTelefonoNonValidoException extends RubricaException {
     public NumeroTelefonoNonValidoException() {
-        super("Errore: Numero di telefono non valido. Assicurarsi che contenga solo cifre e sia compreso tra 8 e 15 caratteri.");
+        super("Errore: Numero di telefono non valido. Assicurarsi che contenga solo cifre senza spazi tra loro, e sia compreso tra 8 e 15 caratteri.");
     }
 
     public NumeroTelefonoNonValidoException(String message) {
