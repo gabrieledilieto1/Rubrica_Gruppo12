@@ -26,10 +26,21 @@ public class NumTelefono {
 
     
     /**
-     * 
-     * @param c
-     * @return 
-     */
+ * Restituisce un numero specificato se presente nella lista dei numeri.
+ * 
+ * Questo metodo verifica se la stringa passata come parametro è diversa da null 
+ * e se è contenuta nella collezione dei numeri. In caso affermativo, restituisce 
+ * la stringa, altrimenti restituisce null.
+ *
+ * @pre La collezione `numeri` deve essere inizializzata e non null.
+ * @pre La stringa `c` può essere null, ma se non lo è, rappresenta un possibile numero.
+ * @post Se `c` è presente nella collezione `numeri`, il metodo restituisce `c`. 
+ *       Altrimenti restituisce null.
+ *
+ * @param c La stringa che rappresenta il numero da cercare.
+ * @return La stringa del numero se presente nella collezione, 
+ *         altrimenti null.
+ */
     public String returnNum(String c) {
     if (c != null){ 
     if (numeri.contains(c)){
@@ -38,8 +49,6 @@ public class NumTelefono {
     }
     return null;
     }
-    
-    
     
       /**
      * @brief Aggiunge un numero di telefono all'insieme, controllando la validità del formato
@@ -66,7 +75,6 @@ public class NumTelefono {
             // Aggiunge il numero solo se non è duplicato
             if (!numeri.add(c)) {
                 throw new DuplicatiException(c);
-                // System.out.println("Errore: Il numero di telefono \"" + c + "\" è già presente.");
             } else {
                 System.out.println("Il numero \"" + c + "\" è stato aggiunto correttamente.");
               }

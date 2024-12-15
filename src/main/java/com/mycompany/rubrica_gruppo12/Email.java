@@ -24,10 +24,21 @@ public class Email {
     }
     
     /**
-     * 
-     * @param c
-     * @return 
-     */
+ * Restituisce un indirizzo email specificato se presente nella lista delle email.
+ * 
+ * Questo metodo verifica se la stringa passata come parametro è diversa da null 
+ * e se è contenuta nella collezione delle email. In caso affermativo, restituisce 
+ * la stringa, altrimenti restituisce null.
+ *
+ * @pre La collezione `mail` deve essere inizializzata e non null.
+ * @pre La stringa `c` può essere null, ma se non lo è, rappresenta un possibile indirizzo email.
+ * @post Se `c` è presente nella collezione `mail`, il metodo restituisce `c`. 
+ *       Altrimenti restituisce null.
+ *
+ * @param c La stringa che rappresenta l'indirizzo email da cercare.
+ * @return La stringa dell'indirizzo email se presente nella collezione, 
+ *         altrimenti null.
+ */
     public String returnMail(String c) {
     if (c != null){ 
     if (mail.contains(c)){
