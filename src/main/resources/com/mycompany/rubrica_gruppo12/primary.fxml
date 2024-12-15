@@ -6,11 +6,11 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
+<AnchorPane prefHeight="481.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.16020671834625322" prefHeight="481.0" prefWidth="713.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane>
                <children>
                   <VBox prefHeight="400.0" prefWidth="178.0">
                      <children>
@@ -19,27 +19,26 @@
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Label fx:id="fldNome" layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
+                              <Label fx:id="lblNome" layoutX="11.0" layoutY="43.0" text="NOME" textAlignment="JUSTIFY">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="txtNome" layoutX="9.0" layoutY="62.0" promptText="es. Giulio" />
-                              <Label fx:id="fldNumTelefono" layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
+                              <Label fx:id="lblNumTelefono" layoutX="9.0" layoutY="184.0" text="NUMERO TELEFONO" />
                               <TextField fx:id="txtCognome" layoutX="9.0" layoutY="131.0" promptText="es. rossi" />
-                              <Label fx:id="fldCognome" graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
-                              <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 384958394" />
-                              <Label fx:id="fldEmail" layoutX="9.0" layoutY="247.0" text="EMAIL" />
+                              <Label fx:id="lblCognome" graphicTextGap="10.0" layoutX="9.0" layoutY="114.0" text="COGNOME" />
+                              <TextField fx:id="txtNumTelefono" layoutX="9.0" layoutY="201.0" promptText="es. +39 383, +39 2354, 234543" />
+                              <Label fx:id="lblEmail" layoutX="9.0" layoutY="247.0" text="EMAIL" />
                               <TextField fx:id="txtEmail" layoutX="9.0" layoutY="264.0" promptText="es. nome@dominio.com" />
-                              <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="301.0" mnemonicParsing="false" onAction="#aggiungiContatto" text="Aggiungi" />
-                              <Button fx:id="btnImporta" layoutX="14.0" layoutY="343.0" mnemonicParsing="false" onAction="#importaContatto" text="Importa" />
-                              <Button fx:id="btnEsporta" layoutX="102.0" layoutY="343.0" mnemonicParsing="false" onAction="#esportaContatto" text="Esporta" />
+                              <Button fx:id="btnAggiungi" layoutX="56.0" layoutY="334.0" mnemonicParsing="false" onAction="#aggiungiContatto" text="Aggiungi" />
                               <MenuBar layoutX="17.0" layoutY="8.0">
                                 <menus>
-                                  <Menu mnemonicParsing="false" text="File">
-                                    <items>
-                                      <MenuItem mnemonicParsing="false" text="Apri" />
-                                    </items>
+                                  <Menu fx:id="mnFile" mnemonicParsing="false" text="File">
+                                       <items>
+                                          <MenuItem fx:id="mnImporta" mnemonicParsing="false" onAction="#importaRubrica" text="Importa" />
+                                          <MenuItem fx:id="mnEsporta" mnemonicParsing="false" onAction="#esportaRubrica" text="Esporta" />
+                                       </items>
                                   </Menu>
                                 </menus>
                               </MenuBar>
@@ -49,24 +48,66 @@
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane prefHeight="479.0" prefWidth="739.0">
                <children>
-                  <SplitPane dividerPositions="0.1" orientation="VERTICAL" prefHeight="400.0" prefWidth="416.0">
+                  <SplitPane dividerPositions="0.1" layoutX="-7.0" orientation="VERTICAL" prefHeight="479.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane>
+                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                            <children>
-                              <TextField fx:id="txtCercaContatto" layoutX="33.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
-                              <Button fx:id="btnCerca" layoutX="249.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
+                              <TextField fx:id="txtCercaContatto" layoutX="54.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
+                              <Button fx:id="btnCerca" layoutX="243.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="265.0" prefWidth="383.0">
+                      <AnchorPane>
                            <children>
-                              <TableView fx:id="tblContatti" layoutX="7.0" onSort="#aggiungiContatto" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columns>
-                                  <TableColumn fx:id="clmCognome" prefWidth="206.0" text="Cognome" />
-                                  <TableColumn fx:id="clmNome" prefWidth="207.0" text="Nome" />
-                                </columns>
-                              </TableView>
+                              <SplitPane dividerPositions="0.5" prefHeight="425.0" prefWidth="978.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="251.0">
+                                       <children>
+                                          <TableView fx:id="tblContatti" layoutX="-2.0" layoutY="-7.0" prefHeight="423.0" prefWidth="484.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="clmCognome" maxWidth="251.0" prefWidth="241.0" text="Cognome" />
+                                              <TableColumn fx:id="clmNome" maxWidth="325.0" prefWidth="242.0" text="Nome" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="379.0">
+                                       <children>
+                                          <Label fx:id="lblNome1" layoutX="62.0" layoutY="45.0" text="Nome" underline="true">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="btnModifica" layoutX="126.0" layoutY="285.0" mnemonicParsing="false" onAction="#modificaContatto" text="Modifica" />
+                                          <Label fx:id="lblEmail3" layoutX="214.0" layoutY="219.0" text="Email3" />
+                                          <Label fx:id="lblEmail2" layoutX="214.0" layoutY="161.0" text="Email2" />
+                                          <Label fx:id="lblEmail1" layoutX="215.0" layoutY="107.0" text="Email1" />
+                                          <Label fx:id="lblNumTelefono3" layoutX="32.0" layoutY="219.0" text="Numero Telefono 3" />
+                                          <Label fx:id="lblNumTelefono2" layoutX="33.0" layoutY="161.0" text="Numero Telefono 2" />
+                                          <Label fx:id="lblNumTelefono1" layoutX="33.0" layoutY="107.0" text="Numero Telefono 1" />
+                                          <Label fx:id="lblCognome1" layoutX="192.0" layoutY="45.0" text="Cognome" underline="true">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtNumTelefono1" layoutX="26.0" layoutY="124.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtNome1" layoutX="26.0" layoutY="68.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtCognome1" layoutX="177.0" layoutY="68.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtEmail1" layoutX="176.0" layoutY="124.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtNumTelefono2" layoutX="26.0" layoutY="178.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtEmail2" layoutX="177.0" layoutY="178.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtNumTelefono3" layoutX="26.0" layoutY="236.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <TextField fx:id="txtEmail3" layoutX="177.0" layoutY="236.0" prefHeight="27.0" prefWidth="106.0" />
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="22.0" text="INFO CONTATTO" AnchorPane.leftAnchor="95.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font></Label>
+                                          <Button fx:id="btnElimina" layoutX="130.0" layoutY="341.0" mnemonicParsing="false" onAction="#eliminaContatto" text="Elimina" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
                            </children>
                         </AnchorPane>
                     </items>
