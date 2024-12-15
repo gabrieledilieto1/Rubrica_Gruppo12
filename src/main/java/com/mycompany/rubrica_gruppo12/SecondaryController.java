@@ -98,6 +98,11 @@ public class SecondaryController implements Initializable {
         }
     }
 
+    
+    public void setContatti(ObservableList<Contatto> contact){
+    contacts = contact;    
+    }
+    
     // Metodo per impostare il contatto da modificare
     public void setDettagliContatto(Contatto contattoSelezionato) {
         this.contatto = contattoSelezionato;
@@ -170,7 +175,9 @@ public class SecondaryController implements Initializable {
         contatto.setNumeri(numTelefono);
 
         // Aggiorna la lista nella scena principale
+         /*Dà nullpointerexception, se riesci a farlo partire abbiamo risolto il problema*/
         primaryController.updateContatto(contatto);
+        primaryController.setContatti(contacts);
 
         // Chiudi la finestra secondaria
         Stage stage = (Stage) btnModifica.getScene().getWindow();
@@ -184,6 +191,7 @@ public class SecondaryController implements Initializable {
         // Prende le informazioni dallo Stage
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(secondViewScene);
-        window.show();
+        primaryController.setContatti(contacts); /*Dà nullpointerexception, se riesci a farlo partire abbiamo risolto il problema*/
+        window.show();  
     }
 }

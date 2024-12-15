@@ -176,6 +176,7 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
 }
 
 
+
     /*
     @FXML
     private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
@@ -336,12 +337,15 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(secondViewScene);
         window.show();
-        
+        /*Stage window = new Stage();
+        window.setScene(secondViewScene);
+        window.show();*/
          // Ottieni il controller della seconda scena
         SecondaryController secondaryController = loader.getController();
          // Ottieni il contatto selezionato
         Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
          // Passa il contatto selezionato al controller secondario
+        secondaryController.setContatti(contacts);
         secondaryController.setDettagliContatto(contattoSelezionato);
     }
  
