@@ -14,6 +14,8 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleStringProperty;
@@ -81,8 +83,6 @@ public class PrimaryController implements Initializable {
     private MenuItem mnEsporta;
     @FXML
     private Menu mnFile;
-    @FXML
-    private Button btnApriInfo;
     
     private Label fldNome;
     private Label fldNumTelefono;
@@ -92,6 +92,40 @@ public class PrimaryController implements Initializable {
     private FilteredList<Contatto> filteredContacts;
     private ObservableList<Contatto> contacts; 
     private Rubrica rubrica; 
+    @FXML
+    private Label lblNome1;
+    @FXML
+    private Button btnModifica;
+    @FXML
+    private Label lblEmail3;
+    @FXML
+    private Label lblEmail2;
+    @FXML
+    private Label lblEmail1;
+    @FXML
+    private Label lblNumTelefono3;
+    @FXML
+    private Label lblNumTelefono2;
+    @FXML
+    private Label lblNumTelefono1;
+    @FXML
+    private Label lblCognome1;
+    @FXML
+    private TextField txtNumTelefono1;
+    @FXML
+    private TextField txtNome1;
+    @FXML
+    private TextField txtCognome1;
+    @FXML
+    private TextField txtEmail1;
+    @FXML
+    private TextField txtNumTelefono2;
+    @FXML
+    private TextField txtEmail2;
+    @FXML
+    private TextField txtNumTelefono3;
+    @FXML
+    private TextField txtEmail3;
     
     
     @Override
@@ -106,10 +140,16 @@ public class PrimaryController implements Initializable {
 
         clmNome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getNome());});
         clmCognome.setCellValueFactory(s -> { return new SimpleStringProperty(s.getValue().getCognome());});
-       /*
-        //DISABILITAZIONE DEI BOTTONI QUANDO I CAMPI OBBLIGATORI NON SONO INSERITI
-        btnAggiungi.disableProperty().bind(Bindings.createBooleanBinding(() -> txtNome.getText().isEmpty() && txtCognome.getText().isEmpty(), txtNome.textProperty(), txtCognome.textProperty() ));
-        */
+      // Assegna un listener per la selezione nella tabella
+    tblContatti.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        if (newSelection != null) {
+            try {
+                apriDettagliContatto(newSelection);
+            } catch (IOException ex) {
+                
+            }
+        }
+    });
        controllaInput();
     }   
     
@@ -329,27 +369,59 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         
     }
 
-     @FXML
-    private void apriDettagliContatto(javafx.event.ActionEvent event) throws IOException{
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
-         Parent secondViewParent = loader.load();
-        Scene secondViewScene = new Scene(secondViewParent);
-        //Prende  le informazioni dallo Stage
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(secondViewScene);
-        window.show();
-        /*Stage window = new Stage();
-        window.setScene(secondViewScene);
-        window.show();*/
-         // Ottieni il controller della seconda scena
-        SecondaryController secondaryController = loader.getController();
-         secondaryController.setPrimaryController(this);
-         // Ottieni il contatto selezionato
-        Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
-         // Passa il contatto selezionato al controller secondario
-        secondaryController.setContatti(contacts);
-        secondaryController.setDettagliContatto(contattoSelezionato);
-       
+    private void apriDettagliContatto(Contatto contatto) throws IOException{
+         
+     // Pulisce i campi per evitare dati residui
+    txtNumTelefono1.clear();
+    txtNumTelefono2.clear();
+    txtNumTelefono3.clear();
+    txtEmail1.clear();
+    txtEmail2.clear();
+    txtEmail3.clear();
+
+    // Gestione dei numeri di telefono
+    int telefonoIndex = 0;
+    for (String numero : contatto.getNumeri().getNumeri()) {
+        switch (telefonoIndex) {
+            case 0:
+                txtNumTelefono1.setText(numero);
+                break;
+            case 1:
+                txtNumTelefono2.setText(numero);
+                break;
+            case 2:
+                txtNumTelefono3.setText(numero);
+                break;
+            default:
+                break; // Interrompe per valori oltre il necessario
+        }
+        telefonoIndex++;
+        if (telefonoIndex >= 3) break; // Interrompe dopo aver riempito i campi
+    }
+
+    // Gestione delle email
+    int emailIndex = 0;
+    for (String email : contatto.getMail().getMail()) {
+        switch (emailIndex) {
+            case 0:
+                txtEmail1.setText(email);
+                break;
+            case 1:
+                txtEmail2.setText(email);
+                break;
+            case 2:
+                txtEmail3.setText(email);
+                break;
+            default:
+                break; // Interrompe per valori oltre il necessario
+        }
+        emailIndex++;
+        if (emailIndex >= 3) break; // Interrompe dopo aver riempito i campi
+    }
+
+    // Nome e cognome
+    txtNome1.setText(contatto.getNome());
+    txtCognome1.setText(contatto.getCognome());
     }
  
     /*
@@ -418,5 +490,37 @@ private void aggiungiContatto(javafx.event.ActionEvent event) throws NomeECognom
         }
         tblContatti.refresh();
     }
-   
+
+    @FXML
+    private void modificaContatto(javafx.event.ActionEvent event) throws NomeECognomeMancanteException, NumeroTelefonoNonValidoException, DuplicatiException {
+         // Recupera il contatto selezionato
+    Contatto contattoSelezionato = tblContatti.getSelectionModel().getSelectedItem();
+    if (contattoSelezionato == null) {
+        System.out.println("Nessun contatto selezionato!");
+        return;
+    }
+
+    // Recupera i dati modificati dai campi di testo
+    String nuovoNome = txtNome1.getText();
+    String nuovoCognome = txtCognome1.getText();
+    String nuoviNumeri = String.join(",", txtNumTelefono1.getText(), txtNumTelefono2.getText(), txtNumTelefono3.getText());
+    String nuoveEmail = String.join(",", txtEmail1.getText(), txtEmail2.getText(), txtEmail3.getText());
+
+    // Aggiorna il contatto
+    Email emailAggiornata = new Email();
+    for (String mail : nuoveEmail.split(",")) {
+        emailAggiornata.aggiungiEmail(mail.trim());
+    }
+
+    NumTelefono numeriAggiornati = new NumTelefono();
+    for (String numero : nuoviNumeri.split(",")) {
+        numeriAggiornati.aggiungiNumTelefono(numero.trim());
+    }
+
+    Contatto contattoAggiornato = new Contatto(nuovoNome, nuovoCognome, emailAggiornata, numeriAggiornati);
+
+    // Aggiorna il contatto nella lista
+    updateContatto(contattoAggiornato);
+}
+ 
 }
