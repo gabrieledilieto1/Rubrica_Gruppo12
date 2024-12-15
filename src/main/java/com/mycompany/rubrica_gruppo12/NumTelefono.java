@@ -17,20 +17,19 @@ public class NumTelefono {
     }
 
     /**
-     * @brief Metodo getter
+     * @brief Metodo getter NumTelefono
      * @return 
      */
     public HashSet<String> getNumeri() {
         return numeri;
     }
+
     
-    
-    
-    
-    
-    
-    
-    
+    /**
+     * 
+     * @param c
+     * @return 
+     */
     public String returnNum(String c) {
     if (c != null){ 
     if (numeri.contains(c)){

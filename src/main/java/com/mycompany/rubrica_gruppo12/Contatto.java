@@ -31,10 +31,18 @@ public class Contatto{
         }
     }
 
+    /**
+     * @brief Setter Mail
+     * @param mail 
+     */
     public void setMail(Email mail) {
         this.mail = mail;
     }
-
+    
+    /**
+     * @brief Setter Numeri
+     * @param numeri 
+    */
     public void setNumeri(NumTelefono numeri) {
         this.numeri = numeri;
     }
@@ -77,6 +85,7 @@ public class Contatto{
     public String getNome() {
         return nome;
     }
+    
     /**
      * @brief Getter Cognome
      * @return 
@@ -84,6 +93,7 @@ public class Contatto{
     public String getCognome() {
         return cognome;
     }
+    
     /**
      * @brief Getter Mail
      * @return 
@@ -91,6 +101,7 @@ public class Contatto{
     public Email getMail(){
         return mail;  
     }
+    
     /**
      * @bried Getter Numero
      * @return 
@@ -98,8 +109,7 @@ public class Contatto{
     public NumTelefono getNumeri(){
         return numeri;
     }
-    
-    
+   
     /**
     * @brief Restituisce una rappresentazione testuale del contatto, includendo nome, cognome, email e numeri di telefono.
     * 

@@ -49,15 +49,17 @@ public class Rubrica{
         return filtro;
     }
     
-        
+     /**
+      * 
+      * @param c
+      * @return 
+      */   
     public Contatto getContatto(Contatto c){
         if (elenco.contains(c)){
             return c;
          }   
         return null;
         }
-    
-    
     
     
     /**
@@ -72,7 +74,10 @@ public class Rubrica{
         elenco.add(c); 
     }   
     
-    
+    /**
+     * 
+     * @param c 
+     */
     public void rimuoviContatto(Contatto c){
         if (elenco.contains(c)){
             elenco.remove(c);

@@ -16,14 +16,18 @@ public class Email {
 
 
     /**
-     * @brief Metodo getter
+     * @brief Metodo getter Email
      * @return 
      */
     public HashSet<String> getMail() {
         return mail;
     }
     
-
+    /**
+     * 
+     * @param c
+     * @return 
+     */
     public String returnMail(String c) {
     if (c != null){ 
     if (mail.contains(c)){
