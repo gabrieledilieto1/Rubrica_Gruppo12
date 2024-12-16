@@ -6,15 +6,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="481.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="1081.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.rubrica_gruppo12.PrimaryController">
    <children>
-      <SplitPane dividerPositions="0.16020671834625322" prefHeight="481.0" prefWidth="713.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.16020671834625322" prefHeight="481.0" prefWidth="1081.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane>
                <children>
-                  <VBox prefHeight="400.0" prefWidth="178.0">
+                  <VBox prefHeight="479.0" prefWidth="178.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Pane prefHeight="384.0" prefWidth="178.0">
+                        <Pane prefHeight="481.0" prefWidth="169.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -48,23 +48,23 @@
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane prefHeight="479.0" prefWidth="739.0">
+          <AnchorPane prefHeight="481.0" prefWidth="896.0">
                <children>
                   <SplitPane dividerPositions="0.1" layoutX="-7.0" orientation="VERTICAL" prefHeight="479.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="737.0">
                            <children>
                               <TextField fx:id="txtCercaContatto" layoutX="54.0" layoutY="5.0" prefHeight="27.0" prefWidth="174.0" promptText="Inserisci Contatto" />
                               <Button fx:id="btnCerca" layoutX="243.0" layoutY="5.0" mnemonicParsing="false" onAction="#cercaContatto" text="Cerca" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="975.0">
+                      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="871.0">
                            <children>
-                              <SplitPane dividerPositions="0.5" prefHeight="425.0" prefWidth="978.0">
+                              <SplitPane dividerPositions="0.5719298245614035" layoutX="34.0" prefHeight="425.0" prefWidth="941.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="423.0" prefWidth="251.0">
+                                  <AnchorPane prefHeight="423.0" prefWidth="515.0">
                                        <children>
-                                          <TableView fx:id="tblContatti" layoutX="-2.0" layoutY="-7.0" prefHeight="423.0" prefWidth="484.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="tblContatti" layoutX="-37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="485.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn fx:id="clmCognome" maxWidth="251.0" prefWidth="241.0" text="Cognome" />
                                               <TableColumn fx:id="clmNome" maxWidth="325.0" prefWidth="242.0" text="Nome" />
@@ -72,7 +72,7 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="423.0" prefWidth="374.0">
+                                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="423.0" prefWidth="398.0">
                                        <children>
                                           <Label fx:id="lblNome1" layoutX="62.0" layoutY="45.0" text="Nome" underline="true">
                                              <font>
